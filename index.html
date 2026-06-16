@@ -339,10 +339,12 @@ body {
   justify-content: center;
 }
 
-.hero-product-visual svg {
+.hero-product-visual img {
   width: 100%;
   height: 100%;
-  opacity: 0.9;
+  object-fit: contain;
+  opacity: 0.95;
+  filter: drop-shadow(0 0 60px rgba(255,92,0,0.15));
 }
 
 .hero-content {
@@ -736,12 +738,25 @@ body {
 .tag-pro { background: var(--bg-darker); color: #fff; }
 .tag-eco { background: var(--green); color: #fff; }
 
-/* Abstract bike visual */
+/* Product card image */
 .bike-silhouette {
-  position: relative;
-  width: 200px;
-  height: 130px;
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   z-index: 2;
+}
+
+.bike-silhouette img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: transform 0.5s var(--ease-smooth);
+}
+
+.product-card:hover .bike-silhouette img {
+  transform: scale(1.06);
 }
 
 .product-card-body {
@@ -830,15 +845,11 @@ body {
 }
 
 /* Product card gradient backgrounds */
-.grad-xtron { background: linear-gradient(135deg, #0a0a1a 0%, #141e30 50%, #1a2a40 100%); }
-.grad-tycoon { background: linear-gradient(135deg, #141414 0%, #222 50%, #141414 100%); }
-.grad-eqmag { background: linear-gradient(135deg, #0d1b2a 0%, #182838 50%, #0d1b2a 100%); }
-.grad-moped { background: linear-gradient(135deg, #161a16 0%, #263026 50%, #161a16 100%); }
-.grad-artax { background: linear-gradient(135deg, #181428 0%, #262040 50%, #181428 100%); }
-.grad-gravel { background: linear-gradient(135deg, #121c12 0%, #1e301e 50%, #121c12 100%); }
-.grad-supermini { background: linear-gradient(135deg, #1a1414 0%, #2e2424 50%, #1a1414 100%); }
-.grad-folding { background: linear-gradient(135deg, #0e1820 0%, #1a2c38 50%, #0e1820 100%); }
-.grad-beluga { background: linear-gradient(135deg, #141a1e 0%, #1e2a32 50%, #141a1e 100%); }
+/* Product card gradient backgrounds — neutral dark for photo display */
+.grad-xtron, .grad-tycoon, .grad-eqmag, .grad-moped, .grad-artax,
+.grad-gravel, .grad-supermini, .grad-folding, .grad-beluga {
+  background: linear-gradient(180deg, #1a1a1e 0%, #222228 50%, #1a1a1e 100%);
+}
 
 /* ============================================================
    FEATURED BANNER — Split layout, big imagery
@@ -1497,27 +1508,9 @@ body {
     <div class="hero-bg-gradient"></div>
   </div>
 
-  <!-- Abstract hero product visual — in production, replace with real product photography -->
+  <!-- Hero product image -->
   <div class="hero-product-visual" aria-hidden="true">
-    <svg viewBox="0 0 700 500" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <!-- Rear wheel -->
-      <circle cx="160" cy="380" r="95" stroke="rgba(255,255,255,0.12)" stroke-width="8"/>
-      <circle cx="160" cy="380" r="80" stroke="rgba(255,255,255,0.06)" stroke-width="2"/>
-      <circle cx="160" cy="380" r="12" fill="rgba(255,255,255,0.15)"/>
-      <!-- Front wheel -->
-      <circle cx="540" cy="380" r="95" stroke="rgba(255,255,255,0.12)" stroke-width="8"/>
-      <circle cx="540" cy="380" r="80" stroke="rgba(255,255,255,0.06)" stroke-width="2"/>
-      <circle cx="540" cy="380" r="12" fill="rgba(255,255,255,0.15)"/>
-      <!-- Frame -->
-      <line x1="160" y1="380" x2="300" y2="220" stroke="rgba(255,255,255,0.2)" stroke-width="5" stroke-linecap="round"/>
-      <line x1="540" y1="380" x2="300" y2="220" stroke="rgba(255,255,255,0.2)" stroke-width="5" stroke-linecap="round"/>
-      <line x1="300" y1="220" x2="300" y2="130" stroke="rgba(255,255,255,0.25)" stroke-width="4" stroke-linecap="round"/>
-      <line x1="240" y1="130" x2="360" y2="130" stroke="rgba(255,255,255,0.2)" stroke-width="4" stroke-linecap="round"/>
-      <!-- Motor/battery accent -->
-      <rect x="275" y="260" width="50" height="70" rx="14" fill="rgba(255,92,0,0.25)" stroke="rgba(255,92,0,0.4)" stroke-width="2"/>
-      <!-- Seat -->
-      <line x1="240" y1="135" x2="210" y2="155" stroke="rgba(255,255,255,0.15)" stroke-width="3" stroke-linecap="round"/>
-    </svg>
+    <img src="images/display.png" alt="QUALIBIKE 全系产品展示" style="width:100%;height:100%;object-fit:contain;">
   </div>
 
   <div class="hero-content">
@@ -1657,15 +1650,7 @@ body {
     <article class="product-card">
       <div class="product-card-media grad-xtron">
         <div class="bike-silhouette">
-          <svg viewBox="0 0 200 130" fill="none">
-            <circle cx="40" cy="100" r="28" stroke="rgba(255,255,255,0.25)" stroke-width="3"/>
-            <circle cx="160" cy="100" r="28" stroke="rgba(255,255,255,0.25)" stroke-width="3"/>
-            <line x1="40" y1="100" x2="100" y2="50" stroke="rgba(255,255,255,0.2)" stroke-width="3"/>
-            <line x1="100" y1="50" x2="160" y2="100" stroke="rgba(255,255,255,0.2)" stroke-width="3"/>
-            <line x1="100" y1="50" x2="100" y2="20" stroke="rgba(255,255,255,0.25)" stroke-width="2.5"/>
-            <line x1="80" y1="20" x2="120" y2="20" stroke="rgba(255,255,255,0.25)" stroke-width="2.5"/>
-            <rect x="88" y="60" width="24" height="18" rx="6" fill="rgba(255,92,0,0.35)"/>
-          </svg>
+          <img src="images/xtron.png" alt="X-tron 城市电动自行车" style="width:100%;height:100%;object-fit:contain;">
         </div>
         <span class="product-card-tag tag-hot">HOT</span>
       </div>
@@ -1692,15 +1677,7 @@ body {
     <article class="product-card">
       <div class="product-card-media grad-tycoon">
         <div class="bike-silhouette">
-          <svg viewBox="0 0 200 130" fill="none">
-            <circle cx="38" cy="102" r="26" stroke="rgba(255,255,255,0.25)" stroke-width="4"/>
-            <circle cx="162" cy="102" r="26" stroke="rgba(255,255,255,0.25)" stroke-width="4"/>
-            <line x1="38" y1="102" x2="90" y2="48" stroke="rgba(255,255,255,0.2)" stroke-width="3.5"/>
-            <line x1="90" y1="48" x2="162" y2="102" stroke="rgba(255,255,255,0.2)" stroke-width="3.5"/>
-            <line x1="90" y1="48" x2="90" y2="18" stroke="rgba(255,255,255,0.25)" stroke-width="3"/>
-            <line x1="66" y1="18" x2="114" y2="18" stroke="rgba(255,255,255,0.25)" stroke-width="3"/>
-            <rect x="80" y="60" width="28" height="20" rx="7" fill="rgba(255,92,0,0.4)"/>
-          </svg>
+          <img src="images/tycoon.png" alt="Tycoon 电动摩托车" style="width:100%;height:100%;object-fit:contain;">
         </div>
         <span class="product-card-tag tag-new">NEW</span>
       </div>
@@ -1727,15 +1704,7 @@ body {
     <article class="product-card">
       <div class="product-card-media grad-eqmag">
         <div class="bike-silhouette">
-          <svg viewBox="0 0 200 130" fill="none">
-            <circle cx="42" cy="98" r="27" stroke="rgba(255,255,255,0.25)" stroke-width="3"/>
-            <circle cx="158" cy="98" r="27" stroke="rgba(255,255,255,0.25)" stroke-width="3"/>
-            <line x1="42" y1="98" x2="100" y2="52" stroke="rgba(255,255,255,0.2)" stroke-width="2.5"/>
-            <line x1="100" y1="52" x2="158" y2="98" stroke="rgba(255,255,255,0.2)" stroke-width="2.5"/>
-            <line x1="100" y1="52" x2="100" y2="22" stroke="rgba(255,255,255,0.25)" stroke-width="2.5"/>
-            <line x1="80" y1="22" x2="120" y2="22" stroke="rgba(255,255,255,0.25)" stroke-width="2.5"/>
-            <rect x="88" y="62" width="24" height="14" rx="5" fill="rgba(52,199,89,0.4)"/>
-          </svg>
+          <img src="images/eqmag.png" alt="EQ MAG 长续航城市车" style="width:100%;height:100%;object-fit:contain;">
         </div>
         <span class="product-card-tag tag-eco">ECO</span>
       </div>
@@ -1762,14 +1731,7 @@ body {
     <article class="product-card">
       <div class="product-card-media grad-moped">
         <div class="bike-silhouette">
-          <svg viewBox="0 0 200 130" fill="none">
-            <circle cx="40" cy="100" r="26" stroke="rgba(255,255,255,0.25)" stroke-width="3"/>
-            <circle cx="160" cy="100" r="26" stroke="rgba(255,255,255,0.25)" stroke-width="3"/>
-            <line x1="40" y1="100" x2="100" y2="48" stroke="rgba(255,255,255,0.2)" stroke-width="3"/>
-            <line x1="100" y1="48" x2="160" y2="100" stroke="rgba(255,255,255,0.2)" stroke-width="3"/>
-            <line x1="100" y1="48" x2="100" y2="18" stroke="rgba(255,255,255,0.25)" stroke-width="2.5"/>
-            <line x1="78" y1="18" x2="122" y2="18" stroke="rgba(255,255,255,0.25)" stroke-width="2.5"/>
-          </svg>
+          <img src="images/moped.png" alt="Moped 轻量代步车" style="width:100%;height:100%;object-fit:contain;">
         </div>
       </div>
       <div class="product-card-body">
@@ -1795,16 +1757,7 @@ body {
     <article class="product-card">
       <div class="product-card-media grad-artax">
         <div class="bike-silhouette">
-          <svg viewBox="0 0 200 130" fill="none">
-            <circle cx="42" cy="100" r="27" stroke="rgba(255,255,255,0.25)" stroke-width="3"/>
-            <circle cx="158" cy="100" r="27" stroke="rgba(255,255,255,0.25)" stroke-width="3"/>
-            <line x1="42" y1="100" x2="100" y2="52" stroke="rgba(255,255,255,0.2)" stroke-width="2.5"/>
-            <line x1="100" y1="52" x2="158" y2="100" stroke="rgba(255,255,255,0.2)" stroke-width="2.5"/>
-            <line x1="100" y1="52" x2="100" y2="22" stroke="rgba(255,255,255,0.25)" stroke-width="2.5"/>
-            <line x1="78" y1="22" x2="122" y2="22" stroke="rgba(255,255,255,0.25)" stroke-width="2.5"/>
-            <rect x="72" y="60" width="14" height="22" rx="4" fill="rgba(0,113,227,0.3)"/>
-            <rect x="110" y="60" width="14" height="22" rx="4" fill="rgba(0,113,227,0.3)"/>
-          </svg>
+          <img src="images/artax.png" alt="Artax Li 双电池系统" style="width:100%;height:100%;object-fit:contain;">
         </div>
         <span class="product-card-tag tag-hot">HOT</span>
       </div>
@@ -1831,14 +1784,7 @@ body {
     <article class="product-card">
       <div class="product-card-media grad-gravel">
         <div class="bike-silhouette">
-          <svg viewBox="0 0 200 130" fill="none">
-            <circle cx="40" cy="102" r="29" stroke="rgba(255,255,255,0.3)" stroke-width="2"/>
-            <circle cx="160" cy="102" r="29" stroke="rgba(255,255,255,0.3)" stroke-width="2"/>
-            <line x1="40" y1="102" x2="100" y2="50" stroke="rgba(255,255,255,0.25)" stroke-width="2"/>
-            <line x1="100" y1="50" x2="160" y2="102" stroke="rgba(255,255,255,0.25)" stroke-width="2"/>
-            <line x1="100" y1="50" x2="100" y2="16" stroke="rgba(255,255,255,0.3)" stroke-width="2"/>
-            <line x1="78" y1="16" x2="122" y2="16" stroke="rgba(255,255,255,0.3)" stroke-width="2"/>
-          </svg>
+          <img src="images/gravel.png" alt="Gravel GX 公路越野" style="width:100%;height:100%;object-fit:contain;">
         </div>
         <span class="product-card-tag tag-pro">ELITE</span>
       </div>
@@ -1865,14 +1811,7 @@ body {
     <article class="product-card">
       <div class="product-card-media grad-supermini">
         <div class="bike-silhouette">
-          <svg viewBox="0 0 200 130" fill="none">
-            <circle cx="45" cy="96" r="24" stroke="rgba(255,255,255,0.25)" stroke-width="3"/>
-            <circle cx="155" cy="96" r="24" stroke="rgba(255,255,255,0.25)" stroke-width="3"/>
-            <line x1="45" y1="96" x2="100" y2="50" stroke="rgba(255,255,255,0.2)" stroke-width="2.5"/>
-            <line x1="100" y1="50" x2="155" y2="96" stroke="rgba(255,255,255,0.2)" stroke-width="2.5"/>
-            <line x1="100" y1="50" x2="100" y2="20" stroke="rgba(255,255,255,0.25)" stroke-width="2.5"/>
-            <line x1="80" y1="20" x2="120" y2="20" stroke="rgba(255,255,255,0.25)" stroke-width="2.5"/>
-          </svg>
+          <img src="images/supermini.png" alt="Supermini 紧凑精灵" style="width:100%;height:100%;object-fit:contain;">
         </div>
       </div>
       <div class="product-card-body">
@@ -1898,15 +1837,7 @@ body {
     <article class="product-card">
       <div class="product-card-media grad-folding">
         <div class="bike-silhouette">
-          <svg viewBox="0 0 200 130" fill="none">
-            <circle cx="42" cy="98" r="26" stroke="rgba(255,255,255,0.25)" stroke-width="3"/>
-            <circle cx="158" cy="98" r="26" stroke="rgba(255,255,255,0.25)" stroke-width="3"/>
-            <line x1="42" y1="98" x2="100" y2="50" stroke="rgba(255,255,255,0.2)" stroke-width="2.5"/>
-            <line x1="100" y1="50" x2="158" y2="98" stroke="rgba(255,255,255,0.2)" stroke-width="2.5"/>
-            <line x1="100" y1="50" x2="100" y2="20" stroke="rgba(255,255,255,0.25)" stroke-width="2.5"/>
-            <line x1="80" y1="20" x2="120" y2="20" stroke="rgba(255,255,255,0.25)" stroke-width="2.5"/>
-            <circle cx="100" cy="50" r="5" fill="rgba(0,113,227,0.5)"/>
-          </svg>
+          <img src="images/folding.png" alt="Electric Folding Bike 折叠电动车" style="width:100%;height:100%;object-fit:contain;">
         </div>
         <span class="product-card-tag tag-new">FOLD</span>
       </div>
@@ -1933,15 +1864,7 @@ body {
     <article class="product-card">
       <div class="product-card-media grad-beluga">
         <div class="bike-silhouette">
-          <svg viewBox="0 0 200 130" fill="none">
-            <circle cx="36" cy="102" r="30" stroke="rgba(255,255,255,0.3)" stroke-width="5"/>
-            <circle cx="164" cy="102" r="30" stroke="rgba(255,255,255,0.3)" stroke-width="5"/>
-            <line x1="36" y1="102" x2="100" y2="46" stroke="rgba(255,255,255,0.25)" stroke-width="3.5"/>
-            <line x1="100" y1="46" x2="164" y2="102" stroke="rgba(255,255,255,0.25)" stroke-width="3.5"/>
-            <line x1="100" y1="46" x2="100" y2="14" stroke="rgba(255,255,255,0.3)" stroke-width="3"/>
-            <line x1="74" y1="14" x2="126" y2="14" stroke="rgba(255,255,255,0.3)" stroke-width="3"/>
-            <rect x="80" y="58" width="36" height="20" rx="6" fill="rgba(255,92,0,0.45)"/>
-          </svg>
+          <img src="images/beluga.png" alt="BELUGA 全地形胖胎" style="width:100%;height:100%;object-fit:contain;">
         </div>
         <span class="product-card-tag tag-hot">BEAST</span>
       </div>
