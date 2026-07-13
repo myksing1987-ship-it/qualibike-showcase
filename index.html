@@ -6,62 +6,82 @@
 <meta name="description" content="QUALIBIKE — Premium electric bicycles engineered for urban explorers, off-road adventurers, and everyday riders. SGS-certified quality, global shipping to 50+ countries.">
 <title>QUALIBIKE | Premium Electric Bicycles — Ride Beyond Limits</title>
 
-<!-- Fonts: Specialized uses custom typography — we use Inter + Noto Sans SC for a premium bilingual feel -->
+<!-- Fonts: Outfit (geometric, distinctive) + Noto Sans SC + JetBrains Mono for data -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800;14..32,900&family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;500;600;700;800;900&family=Noto+Sans+SC:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
 <style>
 /* ============================================================
-   QUALIBIKE SHOWCASE — Design System
-   Inspired by Specialized.com premium design language
+   QUALIBIKE SHOWCASE — Redesigned Design System
+   Upgraded: distinctive typography, grain texture, glass surfaces,
+   asymmetric layouts, spring-physics interactions, scroll-driven reveals
    ============================================================ */
 
 :root {
-  /* ── Core Palette ── */
-  --bg-primary: #FFFFFF;
-  --bg-secondary: #F5F5F7;
-  --bg-tertiary: #E8E8ED;
-  --bg-dark: #1D1D1F;
-  --bg-darker: #000000;
+  /* ── Core Palette (softened blacks, tinted grays) ── */
+  --bg-primary: #FCFCFA;
+  --bg-secondary: #F4F4F0;
+  --bg-tertiary: #E8E8E2;
+  --bg-dark: #0D0D0D;
+  --bg-darker: #080808;
+  --bg-card: #FFFFFF;
 
   /* ── Text ── */
-  --text-primary: #1D1D1F;
-  --text-secondary: #6E6E73;
-  --text-tertiary: #AEAEB2;
-  --text-inverse: #F5F5F7;
+  --text-primary: #141414;
+  --text-secondary: #6B6B65;
+  --text-tertiary: #A0A098;
+  --text-inverse: #F4F4F0;
 
-  /* ── Brand Accent (Specialized uses #E31837 red; QUALIBIKE uses signature orange) ── */
-  --accent: #FF5C00;
-  --accent-hover: #E05300;
-  --accent-glow: rgba(255, 92, 0, 0.25);
-  --accent-subtle: rgba(255, 92, 0, 0.06);
+  /* ── Brand Accent (warm orange, desaturated for elegance) ── */
+  --accent: #F25700;
+  --accent-hover: #D94D00;
+  --accent-glow: rgba(242, 87, 0, 0.22);
+  --accent-subtle: rgba(242, 87, 0, 0.05);
+  --accent-muted: rgba(242, 87, 0, 0.12);
 
-  /* ── Secondary Accents ── */
-  --blue: #0071E3;
-  --green: #34C759;
-  --purple: #AF52DE;
+  /* ── Secondary ── */
+  --blue: #2563EB;
+  --green: #16A34A;
+  --amber: #D97706;
 
   /* ── Borders & Surfaces ── */
-  --border: rgba(0, 0, 0, 0.08);
-  --border-dark: rgba(255, 255, 255, 0.12);
-  --card-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 4px 12px rgba(0,0,0,0.06);
-  --card-shadow-hover: 0 2px 6px rgba(0,0,0,0.06), 0 12px 32px rgba(0,0,0,0.12);
-  --card-shadow-dark: 0 1px 3px rgba(0,0,0,0.2), 0 8px 24px rgba(0,0,0,0.3);
+  --border: rgba(0, 0, 0, 0.06);
+  --border-dark: rgba(255, 255, 255, 0.08);
+  --glass-bg: rgba(255, 255, 255, 0.7);
+  --glass-border: rgba(255, 255, 255, 0.5);
+  --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.04);
+
+  /* ── Shadows (tinted, not pure black) ── */
+  --shadow-xs: 0 1px 2px rgba(10, 10, 10, 0.04);
+  --shadow-sm: 0 1px 3px rgba(10, 10, 10, 0.04), 0 4px 8px rgba(10, 10, 10, 0.04);
+  --shadow-md: 0 2px 6px rgba(10, 10, 10, 0.04), 0 12px 24px rgba(10, 10, 10, 0.06);
+  --shadow-lg: 0 4px 12px rgba(10, 10, 10, 0.05), 0 24px 48px rgba(10, 10, 10, 0.08);
+  --shadow-dark-sm: 0 1px 3px rgba(0, 0, 0, 0.2), 0 8px 16px rgba(0, 0, 0, 0.3);
+  --shadow-dark-lg: 0 4px 16px rgba(0, 0, 0, 0.25), 0 32px 64px rgba(0, 0, 0, 0.35);
 
   /* ── Spacing & Shape ── */
-  --radius-xs: 6px;
-  --radius-sm: 12px;
-  --radius: 20px;
-  --radius-lg: 28px;
-  --radius-xl: 36px;
-  --nav-height: 56px;
-  --max-width: 1280px;
+  --radius-xs: 4px;
+  --radius-sm: 10px;
+  --radius: 18px;
+  --radius-lg: 24px;
+  --radius-xl: 32px;
+  --nav-height: 60px;
+  --max-width: 1320px;
 
-  /* ── Motion ── */
-  --ease-out: cubic-bezier(0.25, 0.1, 0.25, 1);
+  /* ── Motion (spring-like curves) ── */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
   --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+  /* ── Z-index scale ── */
+  --z-base: 1;
+  --z-dropdown: 100;
+  --z-sticky: 200;
+  --z-overlay: 300;
+  --z-modal: 400;
+  --z-toast: 500;
 }
 
 /* ── Reset ── */
@@ -77,9 +97,21 @@ html {
 body {
   background: var(--bg-primary);
   color: var(--text-primary);
-  font-family: 'Inter', 'Noto Sans SC', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-family: 'Outfit', 'Noto Sans SC', -apple-system, BlinkMacSystemFont, sans-serif;
   line-height: 1.5;
   overflow-x: hidden;
+  position: relative;
+}
+
+/* ── Global Grain Texture Overlay ── */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
 }
 
 /* ── Utility ── */
@@ -94,19 +126,28 @@ body {
   overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0;
 }
 
+/* ── Skip to content (accessibility) ── */
+.skip-link {
+  position: absolute; top: -100%; left: 1rem;
+  background: var(--accent); color: #fff; padding: 0.5rem 1rem;
+  border-radius: var(--radius-xs); z-index: var(--z-toast);
+  font-weight: 600; text-decoration: none; transition: top 0.2s;
+}
+.skip-link:focus { top: 0.5rem; }
+
 /* ============================================================
-   ANNOUNCEMENT BAR — Specialized-style slim promo strip
+   ANNOUNCEMENT BAR
    ============================================================ */
 .announcement-bar {
   background: var(--bg-darker);
   color: var(--text-inverse);
   text-align: center;
-  padding: 0.5rem 1rem;
+  padding: 0.55rem 1rem;
   font-size: 0.75rem;
   font-weight: 500;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.03em;
   position: relative;
-  z-index: 1001;
+  z-index: var(--z-sticky);
 }
 
 .announcement-bar span {
@@ -115,23 +156,23 @@ body {
 }
 
 /* ============================================================
-   NAVIGATION — Sticky, clean, mega-menu ready
-   Inspired by Specialized.com's minimal top nav
+   NAVIGATION — True glass morphism
    ============================================================ */
 .nav {
   position: sticky;
   top: 0;
-  z-index: 1000;
+  z-index: var(--z-sticky);
   height: var(--nav-height);
-  background: rgba(255, 255, 255, 0.92);
-  backdrop-filter: saturate(180%) blur(20px);
-  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  background: rgba(252, 252, 250, 0.82);
+  backdrop-filter: saturate(180%) blur(24px);
+  -webkit-backdrop-filter: saturate(180%) blur(24px);
   border-bottom: 1px solid var(--border);
-  transition: all 0.3s var(--ease-out);
+  transition: all 0.4s var(--ease-out);
 }
 
 .nav.scrolled {
-  box-shadow: 0 1px 8px rgba(0,0,0,0.06);
+  box-shadow: var(--shadow-xs);
+  background: rgba(252, 252, 250, 0.92);
 }
 
 .nav-inner {
@@ -148,29 +189,43 @@ body {
 .nav-logo {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.55rem;
   text-decoration: none;
   flex-shrink: 0;
+  transition: transform 0.3s var(--ease-spring);
+}
+
+.nav-logo:hover {
+  transform: scale(1.04);
 }
 
 .nav-logo-icon {
-  width: 32px;
-  height: 32px;
+  width: 34px;
+  height: 34px;
   border-radius: var(--radius-xs);
-  background: var(--bg-darker);
+  background: var(--accent);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--accent);
+  color: #fff;
   font-weight: 900;
-  font-size: 0.7rem;
+  font-size: 0.75rem;
   letter-spacing: -0.02em;
+  position: relative;
+  overflow: hidden;
+}
+
+.nav-logo-icon::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.25) 0%, transparent 60%);
 }
 
 .nav-logo-text {
-  font-size: 1.15rem;
+  font-size: 1.2rem;
   font-weight: 800;
-  letter-spacing: -0.03em;
+  letter-spacing: -0.04em;
   color: var(--text-primary);
 }
 
@@ -182,7 +237,7 @@ body {
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 0.25rem;
+  gap: 0.15rem;
   list-style: none;
 }
 
@@ -194,25 +249,26 @@ body {
   display: flex;
   align-items: center;
   gap: 0.3rem;
-  color: var(--text-primary);
+  color: var(--text-secondary);
   text-decoration: none;
-  font-size: 0.8rem;
+  font-size: 0.82rem;
   font-weight: 500;
-  padding: 0.5rem 0.85rem;
+  padding: 0.5rem 0.9rem;
   border-radius: 8px;
-  transition: all 0.2s;
+  transition: all 0.25s var(--ease-out);
   white-space: nowrap;
+  letter-spacing: -0.01em;
 }
 
 .nav-links > li > a:hover {
-  background: rgba(0,0,0,0.04);
-  color: var(--accent);
+  background: rgba(0,0,0,0.03);
+  color: var(--text-primary);
 }
 
 .nav-links .nav-chevron {
   width: 12px;
   height: 12px;
-  transition: transform 0.2s;
+  transition: transform 0.25s var(--ease-out);
 }
 
 .nav-links > li:hover .nav-chevron {
@@ -228,8 +284,8 @@ body {
 }
 
 .nav-icon-btn {
-  width: 36px;
-  height: 36px;
+  width: 38px;
+  height: 38px;
   border-radius: 50%;
   border: none;
   background: transparent;
@@ -237,38 +293,59 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--text-primary);
-  transition: all 0.2s;
+  color: var(--text-secondary);
+  transition: all 0.25s var(--ease-out);
 }
 
 .nav-icon-btn:hover {
-  background: rgba(0,0,0,0.05);
+  background: rgba(0,0,0,0.04);
+  color: var(--text-primary);
+  transform: scale(1.08);
+}
+
+.nav-icon-btn:active {
+  transform: scale(0.94);
 }
 
 .nav-cta {
   background: var(--accent);
   color: #fff;
   border: none;
-  padding: 0.55rem 1.35rem;
+  padding: 0.6rem 1.5rem;
   border-radius: 100px;
-  font-size: 0.8rem;
+  font-size: 0.82rem;
   font-weight: 600;
   cursor: pointer;
   text-decoration: none;
-  transition: all 0.3s var(--ease-out);
+  letter-spacing: -0.01em;
+  transition: all 0.35s var(--ease-spring);
   white-space: nowrap;
+  position: relative;
+  overflow: hidden;
+}
+
+.nav-cta::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.22) 0%, transparent 50%);
+  pointer-events: none;
 }
 
 .nav-cta:hover {
   background: var(--accent-hover);
-  box-shadow: 0 4px 16px var(--accent-glow);
-  transform: translateY(-1px);
+  box-shadow: 0 6px 24px var(--accent-glow);
+  transform: translateY(-2px);
+}
+
+.nav-cta:active {
+  transform: translateY(0) scale(0.97);
 }
 
 /* ── Mobile Menu Toggle ── */
 .nav-mobile-toggle {
   display: none;
-  width: 36px; height: 36px;
+  width: 38px; height: 38px;
   border: none; background: transparent;
   cursor: pointer;
   flex-direction: column;
@@ -276,6 +353,12 @@ body {
   justify-content: center;
   gap: 5px;
   padding: 6px;
+  border-radius: 50%;
+  transition: background 0.2s;
+}
+
+.nav-mobile-toggle:hover {
+  background: rgba(0,0,0,0.04);
 }
 
 .nav-mobile-toggle span {
@@ -283,57 +366,73 @@ body {
   width: 20px; height: 2px;
   background: var(--text-primary);
   border-radius: 2px;
-  transition: all 0.3s var(--ease-out);
+  transition: all 0.35s var(--ease-out);
 }
 
 .nav-mobile-toggle.active span:nth-child(1) {
   transform: translateY(7px) rotate(45deg);
 }
 .nav-mobile-toggle.active span:nth-child(2) {
-  opacity: 0;
+  opacity: 0; transform: scaleX(0);
 }
 .nav-mobile-toggle.active span:nth-child(3) {
   transform: translateY(-7px) rotate(-45deg);
 }
 
 /* ============================================================
-   HERO — Full-width, image-forward, dramatic
-   Specialized uses bold product photography front & center
+   HERO — Cinematic, animated mesh gradient, dramatic type
    ============================================================ */
 .hero {
   position: relative;
-  min-height: calc(100vh - var(--nav-height) - 32px);
+  min-height: calc(100dvh - var(--nav-height) - 38px);
   display: flex;
   align-items: center;
   overflow: hidden;
   background: var(--bg-darker);
+  isolation: isolate;
 }
 
-.hero-media {
+/* Animated mesh gradient background */
+.hero-bg-mesh {
   position: absolute;
-  inset: 0;
-  overflow: hidden;
-}
-
-.hero-bg-gradient {
-  position: absolute;
-  inset: 0;
+  inset: -50%;
+  z-index: 0;
   background:
-    radial-gradient(ellipse 55% 40% at 30% 50%, rgba(255,92,0,0.12) 0%, transparent 60%),
-    radial-gradient(ellipse 50% 35% at 70% 60%, rgba(0,113,227,0.08) 0%, transparent 60%),
-    radial-gradient(ellipse 80% 60% at 50% 100%, rgba(0,0,0,0.4) 0%, transparent 70%);
-  z-index: 1;
+    radial-gradient(ellipse 45% 35% at 25% 45%, rgba(242, 87, 0, 0.18) 0%, transparent 55%),
+    radial-gradient(ellipse 40% 30% at 70% 35%, rgba(37, 99, 235, 0.10) 0%, transparent 55%),
+    radial-gradient(ellipse 55% 45% at 50% 80%, rgba(242, 87, 0, 0.06) 0%, transparent 60%),
+    radial-gradient(ellipse 35% 25% at 85% 70%, rgba(217, 119, 6, 0.08) 0%, transparent 50%);
+  animation: mesh-drift 20s ease-in-out infinite alternate;
 }
 
-/* Hero product visual — abstract 3D-style bike illustration */
+@keyframes mesh-drift {
+  0% { transform: translate(0, 0) rotate(0deg); }
+  33% { transform: translate(2%, -1%) rotate(1deg); }
+  66% { transform: translate(-1%, 1%) rotate(-0.5deg); }
+  100% { transform: translate(1%, -2%) rotate(0.5deg); }
+}
+
+/* Subtle grid lines on hero */
+.hero-grid-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  opacity: 0.04;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.3) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.3) 1px, transparent 1px);
+  background-size: 60px 60px;
+  mask-image: radial-gradient(ellipse 70% 70% at 50% 50%, black 30%, transparent 70%);
+}
+
 .hero-product-visual {
   position: absolute;
-  right: -5%;
+  right: -8%;
   top: 50%;
   transform: translateY(-50%);
-  width: 55%;
-  height: 80%;
-  z-index: 2;
+  width: 58%;
+  height: 85%;
+  z-index: 1;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -343,13 +442,37 @@ body {
   width: 100%;
   height: 100%;
   object-fit: contain;
-  opacity: 0.95;
-  filter: drop-shadow(0 0 60px rgba(255,92,0,0.15));
+  opacity: 0.9;
+  filter: drop-shadow(0 0 80px rgba(242, 87, 0, 0.12));
+  animation: float-bike 8s ease-in-out infinite;
+}
+
+@keyframes float-bike {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+/* Light streaks behind hero */
+.hero-light-streak {
+  position: absolute;
+  z-index: 0;
+  width: 1px;
+  height: 120%;
+  background: linear-gradient(to bottom, transparent, rgba(255,255,255,0.06) 30%, rgba(255,255,255,0.12) 50%, rgba(255,255,255,0.06) 70%, transparent);
+  transform: rotate(25deg);
+  right: 35%;
+  top: -10%;
+}
+
+.hero-light-streak:nth-child(2) {
+  right: 50%;
+  transform: rotate(15deg);
+  opacity: 0.5;
 }
 
 .hero-content {
   position: relative;
-  z-index: 3;
+  z-index: 2;
   max-width: var(--max-width);
   margin: 0 auto;
   padding: 6rem 2rem;
@@ -357,22 +480,24 @@ body {
 }
 
 .hero-text-area {
-  max-width: 560px;
+  max-width: 580px;
 }
 
 .hero-badge {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 0.35rem 1rem;
+  padding: 0.4rem 1.1rem;
   border-radius: 100px;
-  background: rgba(255,255,255,0.1);
-  border: 1px solid rgba(255,255,255,0.15);
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
   font-size: 0.75rem;
-  color: rgba(255,255,255,0.8);
-  margin-bottom: 1.5rem;
+  color: rgba(255,255,255,0.75);
+  margin-bottom: 2rem;
   animation: fadeInUp 0.7s var(--ease-out) both;
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(12px);
+  letter-spacing: 0.02em;
+  font-weight: 500;
 }
 
 .hero-badge-dot {
@@ -380,36 +505,52 @@ body {
   border-radius: 50%;
   background: var(--accent);
   animation: pulse-dot 2s ease-in-out infinite;
+  box-shadow: 0 0 8px rgba(242, 87, 0, 0.5);
 }
 
 @keyframes pulse-dot {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(255,92,0,0.6); }
-  50% { box-shadow: 0 0 0 8px rgba(255,92,0,0); }
+  0%, 100% { box-shadow: 0 0 0 0 rgba(242, 87, 0, 0.6); }
+  50% { box-shadow: 0 0 0 10px rgba(242, 87, 0, 0); }
 }
 
 .hero h1 {
-  font-size: clamp(3rem, 6.5vw, 5.5rem);
+  font-size: clamp(3.2rem, 7vw, 6rem);
   font-weight: 900;
-  letter-spacing: -0.04em;
-  line-height: 1.05;
+  letter-spacing: -0.05em;
+  line-height: 0.95;
   color: #FFFFFF;
-  margin-bottom: 1.25rem;
+  margin-bottom: 1.5rem;
   animation: fadeInUp 0.7s 0.1s var(--ease-out) both;
+  text-wrap: balance;
 }
 
 .hero h1 .accent-word {
   color: var(--accent);
   position: relative;
+  display: inline-block;
+}
+
+.hero h1 .accent-word::after {
+  content: '';
+  position: absolute;
+  bottom: 4px;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: var(--accent);
+  border-radius: 2px;
+  opacity: 0.3;
 }
 
 .hero-subtitle {
-  font-size: clamp(1.05rem, 1.6vw, 1.25rem);
-  color: rgba(255,255,255,0.7);
-  font-weight: 400;
-  line-height: 1.6;
-  max-width: 460px;
+  font-size: clamp(1.05rem, 1.5vw, 1.2rem);
+  color: rgba(255,255,255,0.6);
+  font-weight: 300;
+  line-height: 1.7;
+  max-width: 440px;
   margin-bottom: 2.5rem;
   animation: fadeInUp 0.7s 0.2s var(--ease-out) both;
+  text-wrap: pretty;
 }
 
 .hero-actions {
@@ -419,21 +560,22 @@ body {
   animation: fadeInUp 0.7s 0.3s var(--ease-out) both;
 }
 
+/* ── Buttons ── */
 .btn-primary {
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.55rem;
   background: var(--accent);
   color: #fff;
   border: none;
-  padding: 0.95rem 2.2rem;
+  padding: 1rem 2.4rem;
   border-radius: 100px;
   font-size: 0.95rem;
   font-weight: 600;
   cursor: pointer;
   text-decoration: none;
   letter-spacing: -0.01em;
-  transition: all 0.3s var(--ease-out);
+  transition: all 0.4s var(--ease-spring);
   position: relative;
   overflow: hidden;
 }
@@ -442,68 +584,82 @@ body {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(255,255,255,0.2) 0%, transparent 50%);
+  background: linear-gradient(135deg, rgba(255,255,255,0.22) 0%, transparent 50%);
   pointer-events: none;
 }
 
 .btn-primary:hover {
   background: var(--accent-hover);
-  transform: translateY(-2px);
-  box-shadow: 0 12px 36px var(--accent-glow);
+  transform: translateY(-3px);
+  box-shadow: 0 16px 40px var(--accent-glow);
+}
+
+.btn-primary:active {
+  transform: translateY(0) scale(0.96);
 }
 
 .btn-outline-light {
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.55rem;
   background: transparent;
   color: #fff;
-  border: 1.5px solid rgba(255,255,255,0.3);
-  padding: 0.95rem 2.2rem;
+  border: 1px solid rgba(255,255,255,0.25);
+  padding: 1rem 2.4rem;
   border-radius: 100px;
   font-size: 0.95rem;
   font-weight: 500;
   cursor: pointer;
   text-decoration: none;
   letter-spacing: -0.01em;
-  transition: all 0.3s var(--ease-out);
+  transition: all 0.35s var(--ease-out);
   backdrop-filter: blur(4px);
 }
 
 .btn-outline-light:hover {
-  background: rgba(255,255,255,0.08);
-  border-color: rgba(255,255,255,0.5);
+  background: rgba(255,255,255,0.06);
+  border-color: rgba(255,255,255,0.45);
+  box-shadow: 0 0 32px rgba(255,255,255,0.04);
+}
+
+.btn-outline-light:active {
+  transform: scale(0.96);
 }
 
 .btn-outline {
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.55rem;
   background: transparent;
   color: var(--text-primary);
-  border: 1.5px solid var(--border);
-  padding: 0.85rem 1.8rem;
+  border: 1px solid var(--border);
+  padding: 0.9rem 2rem;
   border-radius: 100px;
   font-size: 0.9rem;
   font-weight: 500;
   cursor: pointer;
   text-decoration: none;
-  transition: all 0.3s;
+  transition: all 0.35s var(--ease-out);
 }
 
 .btn-outline:hover {
   border-color: var(--accent);
   color: var(--accent);
   background: var(--accent-subtle);
+  transform: translateY(-1px);
+}
+
+.btn-outline:active {
+  transform: scale(0.96);
 }
 
 /* Hero trust bar */
 .hero-trust {
   display: flex;
   gap: 2.5rem;
-  margin-top: 3.5rem;
+  margin-top: 4rem;
   padding-top: 2rem;
-  border-top: 1px solid rgba(255,255,255,0.1);
+  border-top: 1px solid rgba(255,255,255,0.08);
   animation: fadeInUp 0.7s 0.4s var(--ease-out) both;
 }
 
@@ -511,13 +667,18 @@ body {
   display: flex;
   align-items: center;
   gap: 0.6rem;
-  color: rgba(255,255,255,0.6);
+  color: rgba(255,255,255,0.5);
   font-size: 0.78rem;
   font-weight: 500;
+  transition: color 0.3s;
+}
+
+.hero-trust-item:hover {
+  color: rgba(255,255,255,0.8);
 }
 
 .hero-trust-item svg {
-  opacity: 0.7;
+  opacity: 0.6;
   flex-shrink: 0;
 }
 
@@ -527,21 +688,27 @@ body {
   bottom: 2rem;
   left: 50%;
   transform: translateX(-50%);
-  z-index: 3;
-  animation: bounce-down 2s ease-in-out infinite;
+  z-index: 2;
+  animation: bounce-down 2.2s ease-in-out infinite;
+  opacity: 0.5;
+  transition: opacity 0.3s;
+}
+
+.hero-scroll-indicator:hover {
+  opacity: 1;
 }
 
 @keyframes bounce-down {
   0%, 100% { transform: translateX(-50%) translateY(0); }
-  50% { transform: translateX(-50%) translateY(8px); }
+  50% { transform: translateX(-50%) translateY(10px); }
 }
 
 /* ============================================================
-   CATEGORY NAV — Visual grid of riding categories
-   Specialized-style: "Find Your Ride" category cards
+   SECTIONS — Generous spacing, asymmetric where possible
    ============================================================ */
 .section {
-  padding: 6rem 2rem;
+  padding: 7rem 2rem;
+  position: relative;
 }
 
 .section-dark {
@@ -554,24 +721,34 @@ body {
 }
 
 .section-header {
+  max-width: 680px;
+  margin-bottom: 4rem;
+}
+
+/* Left-aligned headers (not centered — breaks the AI symmetry habit) */
+.section-header.centered {
   text-align: center;
-  margin-bottom: 3.5rem;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .section-eyebrow {
-  font-size: 0.75rem;
+  font-size: 0.72rem;
   font-weight: 700;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--accent);
   margin-bottom: 0.75rem;
+  font-family: 'JetBrains Mono', 'Outfit', monospace;
 }
 
 .section-header h2 {
-  font-size: clamp(2rem, 3.5vw, 3rem);
+  font-size: clamp(2.2rem, 4vw, 3.2rem);
   font-weight: 800;
-  letter-spacing: -0.03em;
+  letter-spacing: -0.04em;
   margin-bottom: 0.75rem;
+  line-height: 1.1;
+  text-wrap: balance;
 }
 
 .section-dark .section-header h2 {
@@ -581,87 +758,114 @@ body {
 .section-header .subtitle {
   font-size: 1.05rem;
   color: var(--text-secondary);
-  max-width: 520px;
-  margin: 0 auto;
-  line-height: 1.6;
+  max-width: 480px;
+  line-height: 1.65;
+  text-wrap: pretty;
 }
 
 .section-dark .section-header .subtitle {
-  color: rgba(255,255,255,0.55);
+  color: rgba(255,255,255,0.45);
 }
 
-/* ── Category Cards ── */
+/* ============================================================
+   CATEGORY CARDS — Asymmetric, layered, editorial
+   ============================================================ */
 .category-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: 1.2fr 0.8fr;
   gap: 1.25rem;
   max-width: var(--max-width);
   margin: 0 auto;
+}
+
+.category-grid .category-card:first-child {
+  grid-row: span 2;
 }
 
 .category-card {
   position: relative;
   border-radius: var(--radius);
   overflow: hidden;
-  aspect-ratio: 4/5;
   cursor: pointer;
   transition: all 0.5s var(--ease-smooth);
   display: flex;
   align-items: flex-end;
+  min-height: 320px;
+  isolation: isolate;
 }
 
 .category-card:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--card-shadow-hover);
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
 }
 
 .category-card-bg {
   position: absolute;
   inset: 0;
-  transition: transform 0.6s var(--ease-smooth);
+  transition: transform 0.7s var(--ease-smooth);
 }
 
 .category-card:hover .category-card-bg {
-  transform: scale(1.04);
+  transform: scale(1.05);
 }
 
 .category-card-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.15) 50%, rgba(0,0,0,0.05) 100%);
+  background: linear-gradient(to top, rgba(0,0,0,0.78) 0%, rgba(0,0,0,0.2) 50%, rgba(0,0,0,0.02) 100%);
+  z-index: 1;
+}
+
+/* Spotlight border effect on hover */
+.category-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  border-radius: inherit;
+  background: radial-gradient(800px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(242, 87, 0, 0.12), transparent 40%);
+  opacity: 0;
+  transition: opacity 0.4s;
+  pointer-events: none;
+}
+
+.category-card:hover::before {
+  opacity: 1;
 }
 
 .category-card-content {
   position: relative;
   z-index: 2;
-  padding: 1.75rem;
+  padding: 2rem;
   color: #fff;
 }
 
 .category-card-content h3 {
-  font-size: 1.35rem;
-  font-weight: 700;
-  letter-spacing: -0.02em;
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
   margin-bottom: 0.3rem;
 }
 
 .category-card-content p {
-  font-size: 0.85rem;
-  opacity: 0.8;
-  margin-bottom: 1rem;
+  font-size: 0.9rem;
+  opacity: 0.75;
+  margin-bottom: 1.25rem;
+  font-weight: 300;
+  max-width: 280px;
 }
 
 .category-card-link {
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
-  font-size: 0.8rem;
+  font-size: 0.82rem;
   font-weight: 600;
   color: #fff;
   text-decoration: none;
   opacity: 0;
   transform: translateX(-8px);
-  transition: all 0.3s var(--ease-out);
+  transition: all 0.35s var(--ease-spring);
 }
 
 .category-card:hover .category-card-link {
@@ -669,13 +873,13 @@ body {
   transform: translateX(0);
 }
 
-/* Category card gradient backgrounds (placeholder for real photos) */
-.cat-urban { background: linear-gradient(135deg, #1a1a2e 0%, #16213e 40%, #0f3460 100%); }
-.cat-adventure { background: linear-gradient(135deg, #1b2e1b 0%, #2d4a2d 40%, #1b3a1b 100%); }
-.cat-performance { background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 40%, #1a1a1a 100%); }
+/* Category card gradients */
+.cat-urban { background: linear-gradient(160deg, #141428 0%, #1a1a38 35%, #162044 70%, #0f1a30 100%); }
+.cat-adventure { background: linear-gradient(160deg, #142818 0%, #1a3822 35%, #1a4428 70%, #0f2a14 100%); }
+.cat-performance { background: linear-gradient(160deg, #1a1414 0%, #2a1a1a 35%, #302018 70%, #1a100f 100%); }
 
 /* ============================================================
-   PRODUCT SHOWCASE — Hero product with detailed cards
+   PRODUCT CARDS — Glass morphism, spotlight, bento-inspired
    ============================================================ */
 .products-grid {
   display: grid;
@@ -686,23 +890,40 @@ body {
 }
 
 .product-card {
-  background: #fff;
+  background: var(--bg-card);
   border-radius: var(--radius);
   overflow: hidden;
   border: 1px solid var(--border);
-  transition: all 0.45s var(--ease-smooth);
+  transition: all 0.5s var(--ease-smooth);
   cursor: pointer;
   position: relative;
+  isolation: isolate;
+}
+
+/* Spotlight border */
+.product-card::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  z-index: -1;
+  border-radius: calc(var(--radius) + 2px);
+  background: radial-gradient(600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(242, 87, 0, 0.18), transparent 45%);
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+
+.product-card:hover::before {
+  opacity: 1;
 }
 
 .product-card:hover {
-  transform: translateY(-6px);
-  box-shadow: var(--card-shadow-hover);
-  border-color: rgba(0,0,0,0.12);
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-lg);
+  border-color: transparent;
 }
 
 .product-card-media {
-  height: 260px;
+  height: 270px;
   position: relative;
   overflow: hidden;
   display: flex;
@@ -713,11 +934,11 @@ body {
 .product-card-media .media-bg {
   position: absolute;
   inset: 0;
-  transition: transform 0.6s var(--ease-smooth);
+  transition: transform 0.7s var(--ease-smooth);
 }
 
 .product-card:hover .media-bg {
-  transform: scale(1.05);
+  transform: scale(1.06);
 }
 
 .product-card-tag {
@@ -725,12 +946,13 @@ body {
   top: 1rem;
   left: 1rem;
   padding: 0.3rem 0.85rem;
-  border-radius: 100px;
-  font-size: 0.7rem;
+  border-radius: var(--radius-xs);
+  font-size: 0.68rem;
   font-weight: 700;
-  z-index: 3;
-  letter-spacing: 0.04em;
+  z-index: 2;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
+  font-family: 'JetBrains Mono', monospace;
 }
 
 .tag-new { background: var(--accent); color: #fff; }
@@ -745,50 +967,53 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 2;
+  z-index: 1;
 }
 
 .bike-silhouette img {
   width: 100%;
   height: 100%;
   object-fit: contain;
-  transition: transform 0.5s var(--ease-smooth);
+  transition: transform 0.55s var(--ease-smooth);
 }
 
 .product-card:hover .bike-silhouette img {
-  transform: scale(1.06);
+  transform: scale(1.08) translateY(-4px);
 }
 
 .product-card-body {
-  padding: 1.5rem;
+  padding: 1.5rem 1.75rem 1.75rem;
   position: relative;
+  background: var(--bg-card);
 }
 
 .product-card-body .brand-line {
-  font-size: 0.7rem;
+  font-size: 0.68rem;
   font-weight: 700;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--accent);
   margin-bottom: 0.3rem;
+  font-family: 'JetBrains Mono', monospace;
 }
 
 .product-card-body h3 {
-  font-size: 1.25rem;
-  font-weight: 700;
-  letter-spacing: -0.02em;
-  margin-bottom: 0.2rem;
+  font-size: 1.3rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  margin-bottom: 0.15rem;
 }
 
 .product-card-body .model-subtitle {
   font-size: 0.85rem;
   color: var(--text-secondary);
   margin-bottom: 1rem;
+  font-weight: 400;
 }
 
 .product-specs-row {
   display: flex;
-  gap: 0.75rem;
+  gap: 0.6rem;
   flex-wrap: wrap;
   margin-bottom: 1.25rem;
 }
@@ -798,15 +1023,20 @@ body {
   align-items: center;
   gap: 0.35rem;
   background: var(--bg-secondary);
-  padding: 0.35rem 0.75rem;
+  padding: 0.35rem 0.8rem;
   border-radius: 100px;
   font-size: 0.73rem;
   font-weight: 500;
   color: var(--text-secondary);
+  transition: all 0.25s;
+}
+
+.product-card:hover .product-spec-pill {
+  background: var(--accent-subtle);
 }
 
 .product-spec-pill .spec-dot {
-  width: 7px; height: 7px;
+  width: 6px; height: 6px;
   border-radius: 50%;
   background: var(--accent);
   flex-shrink: 0;
@@ -821,14 +1051,14 @@ body {
 }
 
 .product-price {
-  font-size: 1.15rem;
+  font-size: 1.1rem;
   font-weight: 700;
   letter-spacing: -0.02em;
   color: var(--text-primary);
 }
 
 .product-card-arrow {
-  width: 36px; height: 36px;
+  width: 38px; height: 38px;
   border-radius: 50%;
   background: var(--bg-secondary);
   border: none;
@@ -836,28 +1066,28 @@ body {
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: all 0.3s;
+  transition: all 0.35s var(--ease-spring);
 }
 
 .product-card:hover .product-card-arrow {
   background: var(--accent);
   color: #fff;
+  transform: translateX(4px);
 }
 
 /* Product card gradient backgrounds */
-/* Product card gradient backgrounds — neutral dark for photo display */
 .grad-xtron, .grad-tycoon, .grad-eqmag, .grad-moped, .grad-artax,
 .grad-gravel, .grad-supermini, .grad-folding, .grad-beluga {
-  background: linear-gradient(180deg, #1a1a1e 0%, #222228 50%, #1a1a1e 100%);
+  background: linear-gradient(180deg, #16161a 0%, #1e1e24 50%, #16161a 100%);
 }
 
 /* ============================================================
-   FEATURED BANNER — Split layout, big imagery
+   FEATURED BANNER — Asymmetric split, editorial
    ============================================================ */
 .featured-split {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2rem;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 3rem;
   max-width: var(--max-width);
   margin: 0 auto;
   align-items: center;
@@ -878,11 +1108,11 @@ body {
 .featured-visual-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(0,0,0,0.3) 0%, transparent 60%);
+  background: linear-gradient(135deg, rgba(0,0,0,0.35) 0%, transparent 50%);
 }
 
 .featured-content {
-  padding: 1rem 0;
+  padding: 1.5rem 0;
 }
 
 .featured-content .section-eyebrow {
@@ -890,38 +1120,46 @@ body {
 }
 
 .featured-content h2 {
-  font-size: clamp(1.8rem, 3vw, 2.5rem);
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
   font-weight: 800;
-  letter-spacing: -0.03em;
+  letter-spacing: -0.04em;
   margin-bottom: 1rem;
-  line-height: 1.15;
+  line-height: 1.1;
+  text-wrap: balance;
 }
 
 .featured-content .lead {
   font-size: 1.05rem;
   color: var(--text-secondary);
   line-height: 1.7;
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
+  text-wrap: pretty;
+  font-weight: 350;
 }
 
 .featured-features {
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 0.85rem;
+  gap: 0.9rem;
   margin-bottom: 2rem;
 }
 
 .featured-features li {
   display: flex;
   align-items: flex-start;
-  gap: 0.75rem;
+  gap: 0.85rem;
   font-size: 0.9rem;
   color: var(--text-secondary);
+  transition: color 0.3s;
+}
+
+.featured-features li:hover {
+  color: var(--text-primary);
 }
 
 .featured-features li .check-icon {
-  width: 22px; height: 22px;
+  width: 24px; height: 24px;
   border-radius: 50%;
   background: var(--accent-subtle);
   color: var(--accent);
@@ -931,33 +1169,42 @@ body {
   flex-shrink: 0;
   font-size: 0.7rem;
   margin-top: 1px;
+  transition: all 0.3s var(--ease-spring);
+}
+
+.featured-features li:hover .check-icon {
+  background: var(--accent);
+  color: #fff;
+  transform: scale(1.15);
 }
 
 /* ============================================================
-   TECHNOLOGY / INNOVATION STRIP
-   Like Specialized "Turbo" technology section
+   TECHNOLOGY / INNOVATION STRIP — Dark, elevated
    ============================================================ */
 .tech-strip {
   background: var(--bg-dark);
   color: #fff;
-  padding: 5rem 2rem;
+  padding: 6rem 2rem;
   text-align: center;
   position: relative;
   overflow: hidden;
+  isolation: isolate;
 }
 
 .tech-strip::before {
   content: '';
   position: absolute;
   inset: 0;
+  z-index: 0;
   background:
-    radial-gradient(ellipse 40% 60% at 20% 50%, rgba(255,92,0,0.08) 0%, transparent 60%),
-    radial-gradient(ellipse 40% 60% at 80% 50%, rgba(0,113,227,0.06) 0%, transparent 60%);
+    radial-gradient(ellipse 40% 60% at 15% 50%, rgba(242, 87, 0, 0.07) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 60% at 85% 50%, rgba(37, 99, 235, 0.05) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 50% at 50% 100%, rgba(242, 87, 0, 0.03) 0%, transparent 70%);
   pointer-events: none;
 }
 
 .tech-strip-inner {
-  max-width: 900px;
+  max-width: 960px;
   margin: 0 auto;
   position: relative;
   z-index: 1;
@@ -966,56 +1213,69 @@ body {
 .tech-strip h2 {
   font-size: clamp(2rem, 3.5vw, 2.8rem);
   font-weight: 800;
-  letter-spacing: -0.03em;
+  letter-spacing: -0.04em;
   margin-bottom: 1rem;
 }
 
 .tech-strip .tech-subtitle {
-  color: rgba(255,255,255,0.6);
+  color: rgba(255,255,255,0.5);
   font-size: 1.05rem;
-  max-width: 500px;
-  margin: 0 auto 3rem;
+  max-width: 520px;
+  margin: 0 auto 3.5rem;
+  font-weight: 300;
 }
 
 .tech-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 2rem;
+  gap: 2.5rem;
   text-align: center;
 }
 
+.tech-item {
+  transition: transform 0.4s var(--ease-spring);
+}
+
+.tech-item:hover {
+  transform: translateY(-6px);
+}
+
 .tech-item-icon {
-  width: 64px; height: 64px;
-  border-radius: var(--radius-sm);
-  background: rgba(255,255,255,0.06);
+  width: 72px; height: 72px;
+  border-radius: var(--radius);
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.06);
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0 auto 1rem;
-  font-size: 1.5rem;
-  transition: all 0.3s;
+  margin: 0 auto 1.25rem;
+  font-size: 1.6rem;
+  transition: all 0.4s var(--ease-out);
+  position: relative;
 }
 
 .tech-item:hover .tech-item-icon {
-  background: rgba(255,92,0,0.15);
-  transform: translateY(-3px);
+  background: rgba(242, 87, 0, 0.12);
+  border-color: rgba(242, 87, 0, 0.2);
+  box-shadow: 0 0 32px rgba(242, 87, 0, 0.08);
 }
 
 .tech-item h4 {
-  font-size: 0.95rem;
+  font-size: 1rem;
   font-weight: 700;
-  margin-bottom: 0.5rem;
-  letter-spacing: -0.01em;
+  margin-bottom: 0.6rem;
+  letter-spacing: -0.02em;
 }
 
 .tech-item p {
-  font-size: 0.8rem;
-  color: rgba(255,255,255,0.5);
+  font-size: 0.82rem;
+  color: rgba(255,255,255,0.42);
   line-height: 1.6;
+  font-weight: 300;
 }
 
 /* ============================================================
-   SPECS COMPARISON TABLE — Clean, scannable
+   SPECS COMPARISON TABLE — Clean, data-forward
    ============================================================ */
 .specs-table-wrap {
   max-width: var(--max-width);
@@ -1024,6 +1284,7 @@ body {
   -webkit-overflow-scrolling: touch;
   border-radius: var(--radius);
   border: 1px solid var(--border);
+  box-shadow: var(--shadow-xs);
 }
 
 .specs-table {
@@ -1039,30 +1300,33 @@ body {
 
 .specs-table thead th {
   text-align: left;
-  padding: 1rem 1.25rem;
+  padding: 1.1rem 1.5rem;
   font-weight: 700;
-  font-size: 0.73rem;
-  letter-spacing: 0.06em;
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--text-secondary);
   border-bottom: 1px solid var(--border);
   white-space: nowrap;
+  font-family: 'JetBrains Mono', monospace;
 }
 
 .specs-table thead th:first-child {
   color: var(--text-primary);
-  font-size: 0.8rem;
+  font-size: 0.78rem;
 }
 
 .specs-table tbody td {
-  padding: 0.95rem 1.25rem;
-  border-bottom: 1px solid rgba(0,0,0,0.04);
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid rgba(0,0,0,0.03);
   color: var(--text-secondary);
   white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+  font-family: 'JetBrains Mono', 'Outfit', monospace;
 }
 
 .specs-table tbody tr {
-  transition: all 0.2s;
+  transition: all 0.25s;
 }
 
 .specs-table tbody tr:hover {
@@ -1076,6 +1340,7 @@ body {
 .specs-table .model-name {
   font-weight: 700;
   color: var(--text-primary);
+  font-family: 'Outfit', 'Noto Sans SC', sans-serif;
 }
 
 .specs-table .highlight-cell {
@@ -1084,65 +1349,79 @@ body {
 }
 
 /* ============================================================
-   TESTIMONIALS / TRUST — Social proof strip
+   TESTIMONIALS / TRUST — Editorial, minimal
    ============================================================ */
 .trust-strip {
-  padding: 5rem 2rem;
+  padding: 6rem 2rem;
   text-align: center;
   border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
+  background: var(--bg-primary);
 }
 
 .trust-logos {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 3rem;
+  gap: 2.5rem;
   flex-wrap: wrap;
-  margin-bottom: 2.5rem;
+  margin-bottom: 3rem;
 }
 
 .trust-logos .logo-placeholder {
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-weight: 700;
   color: var(--text-tertiary);
   letter-spacing: -0.01em;
-  opacity: 0.6;
+  opacity: 0.5;
+  transition: all 0.3s;
+  padding: 0.4rem 0.8rem;
+  border-radius: var(--radius-xs);
+}
+
+.trust-logos .logo-placeholder:hover {
+  opacity: 0.85;
+  background: var(--bg-secondary);
 }
 
 .trust-quote {
-  font-size: clamp(1.3rem, 2.5vw, 1.8rem);
+  font-size: clamp(1.4rem, 2.5vw, 2rem);
   font-weight: 600;
-  letter-spacing: -0.02em;
-  max-width: 700px;
-  margin: 0 auto 1rem;
-  line-height: 1.4;
+  letter-spacing: -0.03em;
+  max-width: 680px;
+  margin: 0 auto 1.25rem;
+  line-height: 1.35;
   color: var(--text-secondary);
+  text-wrap: balance;
 }
 
 .trust-attribution {
   font-size: 0.85rem;
   color: var(--text-tertiary);
+  font-weight: 400;
 }
 
 /* ============================================================
-   CTA SECTION
+   CTA SECTION — Dark, dramatic, minimal text
    ============================================================ */
 .cta-section {
-  padding: 7rem 2rem;
+  padding: 8rem 2rem;
   text-align: center;
   background: var(--bg-dark);
   color: #fff;
   position: relative;
   overflow: hidden;
+  isolation: isolate;
 }
 
 .cta-section::before {
   content: '';
   position: absolute;
   inset: 0;
+  z-index: 0;
   background:
-    radial-gradient(ellipse 60% 60% at 50% 50%, rgba(255,92,0,0.08) 0%, transparent 70%);
+    radial-gradient(ellipse 50% 50% at 50% 50%, rgba(242, 87, 0, 0.08) 0%, transparent 70%),
+    radial-gradient(ellipse 30% 30% at 30% 70%, rgba(37, 99, 235, 0.04) 0%, transparent 60%);
   pointer-events: none;
 }
 
@@ -1154,17 +1433,19 @@ body {
 }
 
 .cta-section h2 {
-  font-size: clamp(2rem, 4vw, 3rem);
+  font-size: clamp(2.2rem, 4vw, 3.2rem);
   font-weight: 900;
-  letter-spacing: -0.03em;
-  margin-bottom: 1rem;
+  letter-spacing: -0.04em;
+  margin-bottom: 1.25rem;
+  text-wrap: balance;
 }
 
 .cta-section .cta-sub {
-  color: rgba(255,255,255,0.55);
+  color: rgba(255,255,255,0.45);
   font-size: 1.1rem;
-  margin-bottom: 2.5rem;
-  line-height: 1.6;
+  margin-bottom: 3rem;
+  line-height: 1.7;
+  font-weight: 300;
 }
 
 .cta-actions {
@@ -1175,11 +1456,11 @@ body {
 }
 
 /* ============================================================
-   FOOTER — Premium, informative, Specialized-style
+   FOOTER — Clean, architectural
    ============================================================ */
 .footer {
   background: var(--bg-darker);
-  color: rgba(255,255,255,0.6);
+  color: rgba(255,255,255,0.55);
   padding: 5rem 2rem 2rem;
 }
 
@@ -1189,23 +1470,24 @@ body {
   display: grid;
   grid-template-columns: 2fr 1fr 1fr 1fr;
   gap: 3rem;
-  margin-bottom: 3rem;
+  margin-bottom: 3.5rem;
 }
 
 .footer-brand h3 {
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   font-weight: 800;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.03em;
   color: #fff;
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.85rem;
 }
 
 .footer-brand h3 span { color: var(--accent); }
 
 .footer-brand p {
-  font-size: 0.83rem;
+  font-size: 0.85rem;
   line-height: 1.7;
-  margin-bottom: 1.25rem;
+  margin-bottom: 1.5rem;
+  font-weight: 300;
 }
 
 .footer-social {
@@ -1214,55 +1496,60 @@ body {
 }
 
 .footer-social a {
-  width: 36px; height: 36px;
+  width: 38px; height: 38px;
   border-radius: 50%;
-  background: rgba(255,255,255,0.06);
+  background: rgba(255,255,255,0.04);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: rgba(255,255,255,0.5);
+  color: rgba(255,255,255,0.45);
   text-decoration: none;
   font-size: 0.8rem;
-  transition: all 0.3s;
+  font-weight: 600;
+  transition: all 0.35s var(--ease-spring);
 }
 
 .footer-social a:hover {
   background: var(--accent);
   color: #fff;
+  transform: translateY(-3px);
 }
 
 .footer-col h4 {
-  font-size: 0.75rem;
+  font-size: 0.7rem;
   font-weight: 700;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: #fff;
-  margin-bottom: 1.25rem;
+  color: rgba(255,255,255,0.35);
+  margin-bottom: 1.5rem;
+  font-family: 'JetBrains Mono', monospace;
 }
 
 .footer-col ul {
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 0.6rem;
+  gap: 0.7rem;
 }
 
 .footer-col a {
-  color: rgba(255,255,255,0.5);
+  color: rgba(255,255,255,0.45);
   text-decoration: none;
-  font-size: 0.83rem;
-  transition: color 0.2s;
+  font-size: 0.84rem;
+  font-weight: 400;
+  transition: all 0.25s;
 }
 
 .footer-col a:hover {
   color: #fff;
+  padding-left: 4px;
 }
 
 .footer-bottom {
   max-width: var(--max-width);
   margin: 0 auto;
   padding-top: 2rem;
-  border-top: 1px solid rgba(255,255,255,0.08);
+  border-top: 1px solid rgba(255,255,255,0.06);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -1277,20 +1564,20 @@ body {
 }
 
 .footer-bottom-links a {
-  color: rgba(255,255,255,0.4);
+  color: rgba(255,255,255,0.35);
   text-decoration: none;
-  transition: color 0.2s;
+  transition: color 0.25s;
 }
 
 .footer-bottom-links a:hover {
-  color: rgba(255,255,255,0.7);
+  color: rgba(255,255,255,0.65);
 }
 
 /* ============================================================
    ANIMATIONS
    ============================================================ */
 @keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(24px); }
+  from { opacity: 0; transform: translateY(28px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
@@ -1299,11 +1586,11 @@ body {
   to { opacity: 1; }
 }
 
-/* Scroll reveal */
+/* Scroll reveal — staggered, spring-like */
 .reveal {
   opacity: 0;
-  transform: translateY(32px);
-  transition: opacity 0.8s var(--ease-out), transform 0.8s var(--ease-out);
+  transform: translateY(40px);
+  transition: opacity 0.9s var(--ease-out), transform 0.9s var(--ease-out);
 }
 
 .reveal.visible {
@@ -1314,26 +1601,29 @@ body {
 /* Staggered children */
 .reveal-children > * {
   opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 0.6s var(--ease-out), transform 0.6s var(--ease-out);
+  transform: translateY(30px);
+  transition: opacity 0.7s var(--ease-out), transform 0.7s var(--ease-out);
 }
 
-.reveal-children.visible > *:nth-child(1) { transition-delay: 0.05s; opacity: 1; transform: translateY(0); }
-.reveal-children.visible > *:nth-child(2) { transition-delay: 0.1s; opacity: 1; transform: translateY(0); }
-.reveal-children.visible > *:nth-child(3) { transition-delay: 0.15s; opacity: 1; transform: translateY(0); }
-.reveal-children.visible > *:nth-child(4) { transition-delay: 0.2s; opacity: 1; transform: translateY(0); }
-.reveal-children.visible > *:nth-child(5) { transition-delay: 0.25s; opacity: 1; transform: translateY(0); }
-.reveal-children.visible > *:nth-child(6) { transition-delay: 0.3s; opacity: 1; transform: translateY(0); }
-.reveal-children.visible > *:nth-child(7) { transition-delay: 0.35s; opacity: 1; transform: translateY(0); }
-.reveal-children.visible > *:nth-child(8) { transition-delay: 0.4s; opacity: 1; transform: translateY(0); }
-.reveal-children.visible > *:nth-child(9) { transition-delay: 0.45s; opacity: 1; transform: translateY(0); }
+.reveal-children.visible > *:nth-child(1) { transition-delay: 0.04s; opacity: 1; transform: translateY(0); }
+.reveal-children.visible > *:nth-child(2) { transition-delay: 0.08s; opacity: 1; transform: translateY(0); }
+.reveal-children.visible > *:nth-child(3) { transition-delay: 0.12s; opacity: 1; transform: translateY(0); }
+.reveal-children.visible > *:nth-child(4) { transition-delay: 0.16s; opacity: 1; transform: translateY(0); }
+.reveal-children.visible > *:nth-child(5) { transition-delay: 0.20s; opacity: 1; transform: translateY(0); }
+.reveal-children.visible > *:nth-child(6) { transition-delay: 0.24s; opacity: 1; transform: translateY(0); }
+.reveal-children.visible > *:nth-child(7) { transition-delay: 0.28s; opacity: 1; transform: translateY(0); }
+.reveal-children.visible > *:nth-child(8) { transition-delay: 0.32s; opacity: 1; transform: translateY(0); }
+.reveal-children.visible > *:nth-child(9) { transition-delay: 0.36s; opacity: 1; transform: translateY(0); }
 
 /* ============================================================
    RESPONSIVE
    ============================================================ */
 @media (max-width: 1024px) {
   .category-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr 1fr;
+  }
+  .category-grid .category-card:first-child {
+    grid-row: span 1;
   }
   .featured-split {
     grid-template-columns: 1fr;
@@ -1358,12 +1648,12 @@ body {
     display: flex;
   }
   .hero {
-    min-height: 90vh;
+    min-height: 90dvh;
   }
   .hero-product-visual {
-    right: -20%;
-    width: 80%;
-    opacity: 0.4;
+    right: -25%;
+    width: 90%;
+    opacity: 0.35;
   }
   .hero-text-area {
     max-width: 100%;
@@ -1386,7 +1676,7 @@ body {
     gap: 1.5rem;
   }
   .section {
-    padding: 4rem 1.25rem;
+    padding: 4.5rem 1.25rem;
   }
   .footer-grid {
     grid-template-columns: 1fr;
@@ -1406,13 +1696,13 @@ body {
 
 @media (max-width: 480px) {
   .hero h1 {
-    font-size: 2.5rem;
+    font-size: 2.4rem;
   }
   .tech-grid {
     grid-template-columns: 1fr;
   }
   .trust-logos {
-    gap: 1.5rem;
+    gap: 1.25rem;
   }
 }
 
@@ -1421,14 +1711,14 @@ body {
   position: fixed;
   inset: 0;
   top: var(--nav-height);
-  background: rgba(255,255,255,0.98);
-  backdrop-filter: blur(20px);
-  z-index: 999;
+  background: rgba(252, 252, 250, 0.97);
+  backdrop-filter: blur(24px);
+  z-index: var(--z-overlay);
   display: flex;
   flex-direction: column;
   padding: 2rem;
   transform: translateX(100%);
-  transition: transform 0.4s var(--ease-smooth);
+  transition: transform 0.45s var(--ease-smooth);
 }
 
 .mobile-menu.open {
@@ -1438,15 +1728,25 @@ body {
 .mobile-menu a {
   display: block;
   padding: 1rem 0;
-  font-size: 1.1rem;
+  font-size: 1.15rem;
   font-weight: 600;
   color: var(--text-primary);
   text-decoration: none;
   border-bottom: 1px solid var(--border);
+  letter-spacing: -0.02em;
+  transition: all 0.2s;
+}
+
+.mobile-menu a:active {
+  color: var(--accent);
+  padding-left: 8px;
 }
 </style>
 </head>
 <body>
+
+<!-- Skip to content (accessibility) -->
+<a href="#main-content" class="skip-link">跳转到主内容</a>
 
 <!-- ============================================================
      ANNOUNCEMENT BAR
@@ -1465,7 +1765,7 @@ body {
       <div class="nav-logo-text">QUALI<span>BIKE</span></div>
     </a>
 
-    <ul class="nav-links" role="navigation" aria-label="Main navigation">
+    <ul class="nav-links" role="navigation" aria-label="主导航">
       <li>
         <a href="#bikes">
           产品系列
@@ -1479,11 +1779,11 @@ body {
     </ul>
 
     <div class="nav-actions">
-      <button class="nav-icon-btn" aria-label="Search">
+      <button class="nav-icon-btn" aria-label="搜索">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
       </button>
       <a href="#contact" class="nav-cta">获取报价</a>
-      <button class="nav-mobile-toggle" id="mobileToggle" aria-label="Toggle menu">
+      <button class="nav-mobile-toggle" id="mobileToggle" aria-label="切换菜单">
         <span></span><span></span><span></span>
       </button>
     </div>
@@ -1501,14 +1801,19 @@ body {
 </div>
 
 <!-- ============================================================
-     HERO — Dramatic, image-forward, Specialized-style
+     MAIN CONTENT
+     ============================================================ -->
+<main id="main-content">
+
+<!-- ============================================================
+     HERO — Cinematic, mesh gradient, dramatic typography
      ============================================================ -->
 <section class="hero" id="hero">
-  <div class="hero-media">
-    <div class="hero-bg-gradient"></div>
-  </div>
+  <div class="hero-bg-mesh"></div>
+  <div class="hero-grid-overlay"></div>
+  <div class="hero-light-streak"></div>
+  <div class="hero-light-streak"></div>
 
-  <!-- Hero background — minimalist gradient -->
   <div class="hero-product-visual" aria-hidden="true"></div>
 
   <div class="hero-content">
@@ -1522,7 +1827,7 @@ body {
         出行的未来
       </h1>
       <p class="hero-subtitle">
-        从城市通勤到荒野探险，QUALIBIKE 以精湛工艺与前沿科技，<br>
+        从城市通勤到荒野探险，QUALIBIKE 以精湛工艺与前沿科技，
         打造每一台值得信赖的电动自行车。
       </p>
       <div class="hero-actions">
@@ -1555,29 +1860,30 @@ body {
 
   <!-- Scroll indicator -->
   <div class="hero-scroll-indicator">
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
   </div>
 </section>
 
 <!-- ============================================================
-     RIDE CATEGORIES — "Find Your Ride" (Specialized-style)
+     RIDE CATEGORIES — Asymmetric editorial grid
      ============================================================ -->
 <section class="section" id="bikes">
   <div class="section-header reveal">
-    <div class="section-eyebrow">Find Your Ride</div>
+    <div class="section-eyebrow">找到你的座驾</div>
     <h2>选择你的出行方式</h2>
     <p class="subtitle">每一段旅程都值得一台好车。找到最适合你骑行风格的那一台。</p>
   </div>
 
   <div class="category-grid reveal-children">
-    <!-- Urban Commute -->
-    <div class="category-card" onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})">
+    <!-- Urban Commute (large card, spans 2 rows) -->
+    <div class="category-card" data-section="products">
       <div class="category-card-bg cat-urban">
-        <svg viewBox="0 0 400 500" fill="none" style="position:absolute;inset:0;width:100%;height:100%;opacity:0.3">
-          <rect x="60" y="180" width="280" height="220" rx="20" stroke="rgba(255,255,255,0.2)" stroke-width="2"/>
-          <rect x="80" y="200" width="100" height="80" rx="8" stroke="rgba(255,255,255,0.15)" stroke-width="1.5"/>
-          <rect x="220" y="200" width="100" height="80" rx="8" stroke="rgba(255,255,255,0.15)" stroke-width="1.5"/>
-          <circle cx="200" cy="340" r="30" stroke="rgba(255,92,0,0.4)" stroke-width="2"/>
+        <svg viewBox="0 0 600 700" fill="none" style="position:absolute;inset:0;width:100%;height:100%;opacity:0.25">
+          <rect x="80" y="220" width="440" height="300" rx="24" stroke="rgba(255,255,255,0.12)" stroke-width="2"/>
+          <rect x="110" y="250" width="160" height="120" rx="10" stroke="rgba(255,255,255,0.1)" stroke-width="1.5"/>
+          <rect x="330" y="250" width="160" height="120" rx="10" stroke="rgba(255,255,255,0.1)" stroke-width="1.5"/>
+          <circle cx="300" cy="460" r="40" stroke="rgba(242,87,0,0.25)" stroke-width="2"/>
+          <line x1="300" y1="420" x2="300" y2="500" stroke="rgba(242,87,0,0.15)" stroke-width="1"/>
         </svg>
       </div>
       <div class="category-card-overlay"></div>
@@ -1591,12 +1897,12 @@ body {
       </div>
     </div>
 
-    <!-- Adventure / Off-road -->
-    <div class="category-card" onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})">
+    <!-- Adventure -->
+    <div class="category-card" data-section="products">
       <div class="category-card-bg cat-adventure">
-        <svg viewBox="0 0 400 500" fill="none" style="position:absolute;inset:0;width:100%;height:100%;opacity:0.3">
-          <path d="M0 350 Q100 280 200 320 Q300 360 400 300 L400 500 L0 500Z" stroke="rgba(255,255,255,0.15)" stroke-width="2"/>
-          <path d="M0 400 Q150 350 250 380 Q350 410 400 360 L400 500 L0 500Z" fill="rgba(255,255,255,0.04)"/>
+        <svg viewBox="0 0 400 400" fill="none" style="position:absolute;inset:0;width:100%;height:100%;opacity:0.25">
+          <path d="M0 280 Q100 200 200 240 Q300 280 400 220 L400 400 L0 400Z" stroke="rgba(255,255,255,0.1)" stroke-width="2"/>
+          <path d="M0 340 Q150 280 250 310 Q350 340 400 290 L400 400 L0 400Z" fill="rgba(255,255,255,0.03)"/>
         </svg>
       </div>
       <div class="category-card-overlay"></div>
@@ -1611,12 +1917,12 @@ body {
     </div>
 
     <!-- Performance -->
-    <div class="category-card" onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})">
+    <div class="category-card" data-section="products">
       <div class="category-card-bg cat-performance">
-        <svg viewBox="0 0 400 500" fill="none" style="position:absolute;inset:0;width:100%;height:100%;opacity:0.3">
-          <line x1="80" y1="250" x2="320" y2="250" stroke="rgba(255,255,255,0.1)" stroke-width="1" stroke-dasharray="8 8"/>
-          <polygon points="200,140 340,260 320,360 80,360 60,260" stroke="rgba(255,92,0,0.3)" stroke-width="2" fill="rgba(255,92,0,0.05)"/>
-          <circle cx="200" cy="250" r="8" fill="rgba(255,255,255,0.2)"/>
+        <svg viewBox="0 0 400 400" fill="none" style="position:absolute;inset:0;width:100%;height:100%;opacity:0.25">
+          <line x1="60" y1="200" x2="340" y2="200" stroke="rgba(255,255,255,0.08)" stroke-width="1" stroke-dasharray="6 6"/>
+          <polygon points="200,100 350,220 330,350 70,350 50,220" stroke="rgba(242,87,0,0.2)" stroke-width="2" fill="rgba(242,87,0,0.04)"/>
+          <circle cx="200" cy="200" r="10" fill="rgba(255,255,255,0.12)"/>
         </svg>
       </div>
       <div class="category-card-overlay"></div>
@@ -1637,8 +1943,8 @@ body {
      ============================================================ -->
 <section class="section section-gray" id="products">
   <div class="section-header reveal">
-    <div class="section-eyebrow">Product Line</div>
-    <h2>探索全系产品</h2>
+    <div class="section-eyebrow">全系产品</div>
+    <h2>探索每一款匠心之作</h2>
     <p class="subtitle">从紧凑折叠车到专业公路电动自行车，9 大系列满足你的每一种出行想象。</p>
   </div>
 
@@ -1648,9 +1954,9 @@ body {
     <article class="product-card">
       <div class="product-card-media grad-xtron">
         <div class="bike-silhouette">
-          <img src="images/xtron.png" alt="X-tron 城市电动自行车" style="width:100%;height:100%;object-fit:contain;">
+          <img src="images/xtron.png" alt="X-tron 城市电动自行车 — 铝合金车架，16寸/20寸轮径可选" loading="lazy">
         </div>
-        <span class="product-card-tag tag-hot">HOT</span>
+        <span class="product-card-tag tag-hot">热门</span>
       </div>
       <div class="product-card-body">
         <div class="brand-line">QUALIBIKE</div>
@@ -1664,7 +1970,7 @@ body {
         </div>
         <div class="product-card-footer">
           <span class="product-price">查看详情</span>
-          <button class="product-card-arrow" aria-label="View X-tron details">
+          <button class="product-card-arrow" aria-label="查看 X-tron 详情">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </button>
         </div>
@@ -1675,9 +1981,9 @@ body {
     <article class="product-card">
       <div class="product-card-media grad-tycoon">
         <div class="bike-silhouette">
-          <img src="images/tycoon.png" alt="Tycoon 电动摩托车" style="width:100%;height:100%;object-fit:contain;">
+          <img src="images/tycoon.png" alt="Tycoon 电动摩托车 — 16寸胖胎，液压碟刹" loading="lazy">
         </div>
-        <span class="product-card-tag tag-new">NEW</span>
+        <span class="product-card-tag tag-new">新品</span>
       </div>
       <div class="product-card-body">
         <div class="brand-line">QUALIBIKE</div>
@@ -1691,7 +1997,7 @@ body {
         </div>
         <div class="product-card-footer">
           <span class="product-price">查看详情</span>
-          <button class="product-card-arrow" aria-label="View Tycoon details">
+          <button class="product-card-arrow" aria-label="查看 Tycoon 详情">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </button>
         </div>
@@ -1702,9 +2008,9 @@ body {
     <article class="product-card">
       <div class="product-card-media grad-eqmag">
         <div class="bike-silhouette">
-          <img src="images/eqmag.png" alt="EQ MAG 长续航城市车" style="width:100%;height:100%;object-fit:contain;">
+          <img src="images/eqmag.png" alt="EQ MAG 长续航城市车 — 双电池可选，可拆卸电池设计" loading="lazy">
         </div>
-        <span class="product-card-tag tag-eco">ECO</span>
+        <span class="product-card-tag tag-eco">长续航</span>
       </div>
       <div class="product-card-body">
         <div class="brand-line">QUALIBIKE</div>
@@ -1718,7 +2024,7 @@ body {
         </div>
         <div class="product-card-footer">
           <span class="product-price">查看详情</span>
-          <button class="product-card-arrow" aria-label="View EQ MAG details">
+          <button class="product-card-arrow" aria-label="查看 EQ MAG 详情">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </button>
         </div>
@@ -1729,7 +2035,7 @@ body {
     <article class="product-card">
       <div class="product-card-media grad-moped">
         <div class="bike-silhouette">
-          <img src="images/moped.png" alt="Moped 轻量代步车" style="width:100%;height:100%;object-fit:contain;">
+          <img src="images/moped.png" alt="Moped 轻量代步车 — 仅重27kg，双功率可选" loading="lazy">
         </div>
       </div>
       <div class="product-card-body">
@@ -1744,7 +2050,7 @@ body {
         </div>
         <div class="product-card-footer">
           <span class="product-price">查看详情</span>
-          <button class="product-card-arrow" aria-label="View Moped details">
+          <button class="product-card-arrow" aria-label="查看 Moped 详情">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </button>
         </div>
@@ -1755,9 +2061,9 @@ body {
     <article class="product-card">
       <div class="product-card-media grad-artax">
         <div class="bike-silhouette">
-          <img src="images/artax.png" alt="Artax Li 双电池系统" style="width:100%;height:100%;object-fit:contain;">
+          <img src="images/artax.png" alt="Artax Li 双电池系统 — Shimano 7速，最高时速32km/h" loading="lazy">
         </div>
-        <span class="product-card-tag tag-hot">HOT</span>
+        <span class="product-card-tag tag-hot">热门</span>
       </div>
       <div class="product-card-body">
         <div class="brand-line">QUALIBIKE</div>
@@ -1771,7 +2077,7 @@ body {
         </div>
         <div class="product-card-footer">
           <span class="product-price">查看详情</span>
-          <button class="product-card-arrow" aria-label="View Artax Li details">
+          <button class="product-card-arrow" aria-label="查看 Artax Li 详情">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </button>
         </div>
@@ -1782,9 +2088,9 @@ body {
     <article class="product-card">
       <div class="product-card-media grad-gravel">
         <div class="bike-silhouette">
-          <img src="images/gravel.png" alt="Gravel GX 公路越野" style="width:100%;height:100%;object-fit:contain;">
+          <img src="images/gravel.png" alt="Gravel GX 公路越野 — 700C轮径，10速变速，仅19.6kg" loading="lazy">
         </div>
-        <span class="product-card-tag tag-pro">ELITE</span>
+        <span class="product-card-tag tag-pro">精英</span>
       </div>
       <div class="product-card-body">
         <div class="brand-line">QUALIBIKE</div>
@@ -1798,7 +2104,7 @@ body {
         </div>
         <div class="product-card-footer">
           <span class="product-price">查看详情</span>
-          <button class="product-card-arrow" aria-label="View Gravel GX details">
+          <button class="product-card-arrow" aria-label="查看 Gravel GX 详情">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </button>
         </div>
@@ -1809,7 +2115,7 @@ body {
     <article class="product-card">
       <div class="product-card-media grad-supermini">
         <div class="bike-silhouette">
-          <img src="images/supermini.png" alt="Supermini 紧凑精灵" style="width:100%;height:100%;object-fit:contain;">
+          <img src="images/supermini.png" alt="Supermini 紧凑精灵 — 18寸轮径，80km超长续航" loading="lazy">
         </div>
       </div>
       <div class="product-card-body">
@@ -1824,7 +2130,7 @@ body {
         </div>
         <div class="product-card-footer">
           <span class="product-price">查看详情</span>
-          <button class="product-card-arrow" aria-label="View Supermini details">
+          <button class="product-card-arrow" aria-label="查看 Supermini 详情">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </button>
         </div>
@@ -1835,9 +2141,9 @@ body {
     <article class="product-card">
       <div class="product-card-media grad-folding">
         <div class="bike-silhouette">
-          <img src="images/folding.png" alt="Electric Folding Bike 折叠电动车" style="width:100%;height:100%;object-fit:contain;">
+          <img src="images/folding.png" alt="Electric Folding Bike 折叠电动车 — Shimano 7速，便携可折叠" loading="lazy">
         </div>
-        <span class="product-card-tag tag-new">FOLD</span>
+        <span class="product-card-tag tag-new">折叠</span>
       </div>
       <div class="product-card-body">
         <div class="brand-line">QUALIBIKE</div>
@@ -1851,7 +2157,7 @@ body {
         </div>
         <div class="product-card-footer">
           <span class="product-price">查看详情</span>
-          <button class="product-card-arrow" aria-label="View Folding Bike details">
+          <button class="product-card-arrow" aria-label="查看 Folding Bike 详情">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </button>
         </div>
@@ -1862,9 +2168,9 @@ body {
     <article class="product-card">
       <div class="product-card-media grad-beluga">
         <div class="bike-silhouette">
-          <img src="images/beluga.png" alt="BELUGA 全地形胖胎" style="width:100%;height:100%;object-fit:contain;">
+          <img src="images/beluga.png" alt="BELUGA 全地形胖胎 — 20寸×4.25宽胎，Shimano 7速" loading="lazy">
         </div>
-        <span class="product-card-tag tag-hot">BEAST</span>
+        <span class="product-card-tag tag-hot">旗舰</span>
       </div>
       <div class="product-card-body">
         <div class="brand-line">QUALIBIKE</div>
@@ -1878,7 +2184,7 @@ body {
         </div>
         <div class="product-card-footer">
           <span class="product-price">查看详情</span>
-          <button class="product-card-arrow" aria-label="View BELUGA details">
+          <button class="product-card-arrow" aria-label="查看 BELUGA 详情">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </button>
         </div>
@@ -1889,19 +2195,19 @@ body {
 </section>
 
 <!-- ============================================================
-     FEATURED PRODUCT — Split layout, big story
+     FEATURED PRODUCT — Asymmetric split
      ============================================================ -->
 <section class="section" id="technology">
   <div class="featured-split">
     <div class="featured-visual reveal">
-      <div class="featured-visual-bg" style="background: linear-gradient(135deg, #0a0a1a 0%, #141e30 50%, #1a2a40 100%); display:flex;align-items:center;justify-content:center;">
-        <img src="images/display.png" alt="QUALIBIKE 全系产品展示" style="width:90%;height:90%;object-fit:contain;">
+      <div class="featured-visual-bg" style="background: linear-gradient(160deg, #0a0a14 0%, #141e2a 50%, #1a2838 100%); display:flex;align-items:center;justify-content:center;">
+        <img src="images/display.png" alt="QUALIBIKE 全系产品展示 — 从城市通勤到户外探险的完整产品线" style="width:88%;height:88%;object-fit:contain;">
       </div>
       <div class="featured-visual-overlay"></div>
     </div>
 
     <div class="featured-content reveal">
-      <div class="section-eyebrow">Technology</div>
+      <div class="section-eyebrow">核心技术</div>
       <h2>核心动力科技<br>驱动每一次出行</h2>
       <p class="lead">
         QUALIBIKE 搭载自研电机控制系统，配合高效锂电池组，提供平顺、强劲、可靠的动力输出。每一台电机出厂前均经过严苛的耐久性测试。
@@ -1933,32 +2239,40 @@ body {
 </section>
 
 <!-- ============================================================
-     INNOVATION STRIP — Dark, tech-focused
+     INNOVATION STRIP — Dark, premium
      ============================================================ -->
 <section class="tech-strip">
   <div class="tech-strip-inner">
-    <div class="section-eyebrow" style="color: var(--accent);">Why QUALIBIKE</div>
+    <div class="section-eyebrow" style="color: var(--accent);">为什么选择我们</div>
     <h2>超越期待的品质承诺</h2>
     <p class="tech-subtitle">每一台 QUALIBIKE 都经过 SGS 认证实验室严苛测试，只为给你最安心的出行保障。</p>
 
     <div class="tech-grid reveal-children">
       <div class="tech-item">
-        <div class="tech-item-icon">🔬</div>
+        <div class="tech-item-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+        </div>
         <h4>SGS 认证实验室</h4>
         <p>盐雾老化、模拟运输振动、电池循环测试、前叉疲劳测试 — 十余台专业设备全流程检测。</p>
       </div>
       <div class="tech-item">
-        <div class="tech-item-icon">🏭</div>
+        <div class="tech-item-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+        </div>
         <h4>OEM / ODM 定制</h4>
         <p>根据需求定制产品规格，帮助客户打造专属电动自行车品牌，从设计到量产一站式服务。</p>
       </div>
       <div class="tech-item">
-        <div class="tech-item-icon">🌍</div>
+        <div class="tech-item-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        </div>
         <h4>全球出口网络</h4>
         <p>产品进入欧洲、美洲、东南亚等 50+ 国家和地区市场，拥有丰富的国际合规经验。</p>
       </div>
       <div class="tech-item">
-        <div class="tech-item-icon">🛠️</div>
+        <div class="tech-item-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+        </div>
         <h4>全流程售后</h4>
         <p>专业售后团队提供快速技术支持、维修配件供应，确保客户运营无忧。</p>
       </div>
@@ -1971,8 +2285,8 @@ body {
      ============================================================ -->
 <section class="section" id="specs">
   <div class="section-header reveal">
-    <div class="section-eyebrow">Compare Models</div>
-    <h2>产品规格对比</h2>
+    <div class="section-eyebrow">对比型号</div>
+    <h2>产品规格一览</h2>
     <p class="subtitle">快速了解各型号关键参数，找到最适合你的那一台。</p>
   </div>
 
@@ -2096,13 +2410,13 @@ body {
 <section class="trust-strip" id="about">
   <div class="trust-logos reveal">
     <span class="logo-placeholder">SGS 认证</span>
-    <span style="color:var(--text-tertiary);opacity:0.3;">•</span>
+    <span style="color:var(--text-tertiary);opacity:0.2;">·</span>
     <span class="logo-placeholder">CE 认证</span>
-    <span style="color:var(--text-tertiary);opacity:0.3;">•</span>
+    <span style="color:var(--text-tertiary);opacity:0.2;">·</span>
     <span class="logo-placeholder">EN 15194</span>
-    <span style="color:var(--text-tertiary);opacity:0.3;">•</span>
+    <span style="color:var(--text-tertiary);opacity:0.2;">·</span>
     <span class="logo-placeholder">UL 2849</span>
-    <span style="color:var(--text-tertiary);opacity:0.3;">•</span>
+    <span style="color:var(--text-tertiary);opacity:0.2;">·</span>
     <span class="logo-placeholder">RoHS</span>
   </div>
 
@@ -2115,30 +2429,32 @@ body {
 </section>
 
 <!-- ============================================================
-     CTA — Full-width dark
+     CTA — Full-width dark, minimal
      ============================================================ -->
 <section class="cta-section" id="contact">
   <div class="cta-content">
-    <div class="section-eyebrow" style="color: var(--accent);">Get In Touch</div>
+    <div class="section-eyebrow" style="color: var(--accent);">联系我们</div>
     <h2>准备好开启电动之旅了吗？</h2>
     <p class="cta-sub">
       无论是产品咨询、批量采购还是 OEM/ODM 合作，<br>我们的团队随时为你服务。
     </p>
     <div class="cta-actions">
-      <a href="mailto:Louis@qualisports.com" class="btn-primary" style="font-size:1.05rem;padding:1rem 2.5rem;">
+      <a href="mailto:Louis@qualisports.com" class="btn-primary" style="font-size:1.05rem;padding:1.05rem 2.6rem;">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
         Louis@qualisports.com
       </a>
-      <a href="#" class="btn-outline-light" style="font-size:1.05rem;padding:1rem 2.5rem;">
+      <a href="#" class="btn-outline-light" style="font-size:1.05rem;padding:1.05rem 2.6rem;">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
         致电咨询
       </a>
     </div>
-    <p style="margin-top:1.5rem;font-size:0.85rem;color:rgba(255,255,255,0.4);">
+    <p style="margin-top:1.75rem;font-size:0.85rem;color:rgba(255,255,255,0.35);">
       或直接致电：+0086 137 7521 3851
     </p>
   </div>
 </section>
+
+</main>
 
 <!-- ============================================================
      FOOTER
@@ -2152,9 +2468,9 @@ body {
       </p>
       <div class="footer-social">
         <a href="#" aria-label="Facebook">f</a>
-        <a href="#" aria-label="Instagram">in</a>
+        <a href="#" aria-label="Instagram">Ig</a>
         <a href="#" aria-label="YouTube">▶</a>
-        <a href="#" aria-label="LinkedIn">Li</a>
+        <a href="#" aria-label="LinkedIn">in</a>
       </div>
     </div>
 
@@ -2211,10 +2527,9 @@ body {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('visible');
-        // Don't unobserve — allows re-trigger if needed
       }
     });
-  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
 
   document.querySelectorAll('.reveal, .reveal-children').forEach(el => {
     revealObserver.observe(el);
@@ -2222,13 +2537,17 @@ body {
 
   // ── Navbar scroll effect ──
   const navbar = document.getElementById('navbar');
+  let lastScrollY = 0;
+
   window.addEventListener('scroll', () => {
-    if (window.scrollY > 40) {
+    const scrollY = window.scrollY;
+    if (scrollY > 40) {
       navbar.classList.add('scrolled');
     } else {
       navbar.classList.remove('scrolled');
     }
-  });
+    lastScrollY = scrollY;
+  }, { passive: true });
 
   // ── Mobile menu toggle ──
   const mobileToggle = document.getElementById('mobileToggle');
@@ -2249,6 +2568,22 @@ body {
     });
   });
 
+  // ── Spotlight border effect (cards follow mouse) ──
+  document.querySelectorAll('.product-card, .category-card').forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = ((e.clientX - rect.left) / rect.width) * 100;
+      const y = ((e.clientY - rect.top) / rect.height) * 100;
+      card.style.setProperty('--mouse-x', `${x}%`);
+      card.style.setProperty('--mouse-y', `${y}%`);
+    });
+
+    card.addEventListener('mouseleave', () => {
+      card.style.removeProperty('--mouse-x');
+      card.style.removeProperty('--mouse-y');
+    });
+  });
+
   // ── Product card hover parallax ──
   document.querySelectorAll('.product-card').forEach(card => {
     card.addEventListener('mousemove', (e) => {
@@ -2257,13 +2592,24 @@ body {
       const y = (e.clientY - rect.top) / rect.height - 0.5;
       const media = card.querySelector('.product-card-media');
       if (media) {
-        media.style.transform = `scale(1.03) translate(${x * 6}px, ${y * 6}px)`;
+        media.style.transform = `scale(1.03) translate(${x * 8}px, ${y * 8}px)`;
       }
     });
     card.addEventListener('mouseleave', () => {
       const media = card.querySelector('.product-card-media');
       if (media) {
         media.style.transform = 'scale(1) translate(0, 0)';
+      }
+    });
+  });
+
+  // ── Category card click navigation ──
+  document.querySelectorAll('.category-card[data-section]').forEach(card => {
+    card.addEventListener('click', () => {
+      const sectionId = card.getAttribute('data-section');
+      const section = document.getElementById(sectionId);
+      if (section) {
+        section.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
     });
   });
@@ -2280,8 +2626,7 @@ body {
   });
 
   // ── Current year auto-update ──
-  const yearSpans = document.querySelectorAll('.footer-bottom span');
-  yearSpans.forEach(span => {
+  document.querySelectorAll('.footer-bottom span').forEach(span => {
     span.textContent = span.textContent.replace('2026', new Date().getFullYear());
   });
 </script>
