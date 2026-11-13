@@ -1,0 +1,228 @@
+/* Morite product data — source: QUALIBIKE product catalogue (26 pages) */
+window.MORITE = {
+  "brand": "Morite",
+  "legalName": "Changzhou Bovo Intelligent Technology Co., Ltd.",
+  "domain": "morite-power.com",
+  "contact": {
+    "phone": "+86 137 7521 3851",
+    "email": "Louis@qualisports.com"
+  },
+  "products": [
+    {
+      "slug": "x-tron",
+      "name": "X-tron",
+      "alt": "X-tron City E-Bike",
+      "cat": "City / Commuter",
+      "img": "xtron.jpg",
+      "tagline": "Full aluminium city frame, 16\" or 20\" wheels, 48V 500W rear hub drive.",
+      "specs": {
+        "wheel": "16\"×2.4\" / 20\"×2.4\"",
+        "drivetrain": "—",
+        "motor": "48V 500W rear hub",
+        "battery": "48V 20Ah",
+        "range": "50–70 km",
+        "topSpeed": "25 km/h",
+        "frame": "Full aluminium alloy",
+        "weight": "35 kg (sample)",
+        "brakes": "Disc brakes",
+        "display": "LCD",
+        "chargeTime": "7 h",
+        "carton": "158×31×96 cm"
+      },
+      "moq": "Contact us",
+      "certs": "SGS-tested components"
+    },
+    {
+      "slug": "tycoon",
+      "name": "Tycoon",
+      "alt": "Tycoon 16\" Electric Moped",
+      "cat": "E-Moped",
+      "img": "tycoon.jpg",
+      "tagline": "16\"×4.0\" fat tyres, hydraulic disc brakes, removable 48V battery.",
+      "specs": {
+        "wheel": "16\"×4.0\" fat tyre",
+        "drivetrain": "—",
+        "motor": "48V 500W geared rear hub",
+        "battery": "48V 20Ah (removable)",
+        "range": "50–70 km",
+        "topSpeed": "25 km/h",
+        "frame": "Full aluminium alloy",
+        "weight": "TBD",
+        "brakes": "Hydraulic disc brakes",
+        "display": "KT-LCD4",
+        "chargeTime": "7 h",
+        "carton": "170×24×84 cm"
+      },
+      "moq": "Contact us",
+      "certs": "SGS-tested components"
+    },
+    {
+      "slug": "eq-mag",
+      "name": "EQ MAG",
+      "alt": "EQ MAG Long Range E-Bike",
+      "cat": "City / Commuter",
+      "img": "eqmag.jpg",
+      "tagline": "Samsung 20Ah or 10Ah pack, carbon steel frame, up to 60 km of range.",
+      "specs": {
+        "wheel": "16\"×2.4\"",
+        "drivetrain": "—",
+        "motor": "48V 500W rear hub",
+        "battery": "Samsung 48V 20Ah / 10Ah (removable)",
+        "range": "60 km (20Ah) / 30 km (10Ah)",
+        "topSpeed": "25 km/h",
+        "frame": "Carbon steel",
+        "weight": "29.6 kg (sample)",
+        "brakes": "Hydraulic disc brakes",
+        "display": "TF01-LCD",
+        "chargeTime": "6.5 h (20Ah) / 5 h (10Ah)",
+        "carton": "149×24.5×89 cm"
+      },
+      "moq": "Contact us",
+      "certs": "SGS-tested components"
+    },
+    {
+      "slug": "moped",
+      "name": "Moped",
+      "alt": "Moped Lightweight E-Bike",
+      "cat": "E-Moped",
+      "img": "moped.jpg",
+      "tagline": "27 kg step-through commuter with 350W or 500W geared drive.",
+      "specs": {
+        "wheel": "16\"×2.5\"",
+        "drivetrain": "—",
+        "motor": "48V 350W / 500W geared rear hub",
+        "battery": "48V 10Ah / 20Ah",
+        "range": "50–70 km (20Ah)",
+        "topSpeed": "25 km/h",
+        "frame": "TBD",
+        "weight": "27 kg (sample)",
+        "brakes": "Front & rear mechanical disc",
+        "display": "LCD",
+        "chargeTime": "6–8 h",
+        "carton": "156.5×22×87 cm"
+      },
+      "moq": "Contact us",
+      "certs": "SGS-tested components"
+    },
+    {
+      "slug": "artax-li",
+      "name": "Artax Li",
+      "alt": "Artax Li Dual Battery E-Bike",
+      "cat": "City / Commuter",
+      "img": "artax.jpg",
+      "tagline": "Dual or single battery, Shimano 7-speed, Tektro hydraulic brakes.",
+      "specs": {
+        "wheel": "20\"×2.4\"",
+        "drivetrain": "Shimano Tourney 7-speed",
+        "motor": "48V 500W geared rear hub",
+        "battery": "48V 20Ah (dual or single)",
+        "range": "50–70 km",
+        "topSpeed": "25–32 km/h",
+        "frame": "Full aluminium alloy",
+        "weight": "35 kg (sample)",
+        "brakes": "Tektro E3520 hydraulic disc",
+        "display": "KT-LCD4",
+        "chargeTime": "7 h",
+        "carton": "198.5×31×83 cm"
+      },
+      "moq": "Contact us",
+      "certs": "SGS-tested components"
+    },
+    {
+      "slug": "gravel-gx",
+      "name": "Gravel GX",
+      "alt": "Gravel GX 700C E-Bike",
+      "cat": "Gravel / Road",
+      "img": "gravel.jpg",
+      "tagline": "700C platform, 10-speed drivetrain, 19.6 kg complete bike.",
+      "specs": {
+        "wheel": "700C×30C / 700C×42C",
+        "drivetrain": "10-speed",
+        "motor": "36V 250W rear hub",
+        "battery": "36V 10Ah",
+        "range": "TBD",
+        "topSpeed": "32–45 km/h",
+        "frame": "Full aluminium alloy",
+        "weight": "19.6 kg (sample)",
+        "brakes": "Disc brakes",
+        "display": "DZ49 + DK156",
+        "chargeTime": "TBD",
+        "carton": "181×54×98 cm"
+      },
+      "moq": "Contact us",
+      "certs": "SGS-tested components"
+    },
+    {
+      "slug": "supermini",
+      "name": "Supermini",
+      "alt": "Supermini 18\" City Mini E-Bike",
+      "cat": "Compact",
+      "img": "supermini.jpg",
+      "tagline": "18\" city mini with 70–80 km range and 4-speed gearing.",
+      "specs": {
+        "wheel": "18\"×2.4\"",
+        "drivetrain": "4-speed",
+        "motor": "36V 500W geared rear hub",
+        "battery": "36V 14Ah (seatpost)",
+        "range": "70–80 km",
+        "topSpeed": "32 km/h",
+        "frame": "Full aluminium alloy",
+        "weight": "TBD",
+        "brakes": "Hydraulic disc brakes",
+        "display": "KT-LCD7U",
+        "chargeTime": "7 h",
+        "carton": "149×24.5×68.5 cm"
+      },
+      "moq": "Contact us",
+      "certs": "SGS-tested components"
+    },
+    {
+      "slug": "folding",
+      "name": "Electric Folding",
+      "alt": "Electric Folding Bike 16\"/20\"",
+      "cat": "Folding",
+      "img": "folding.jpg",
+      "tagline": "16\" or 20\" folding frame, Shimano 7-speed, 70–80 km range.",
+      "specs": {
+        "wheel": "20\"×2.4\" (16\" option)",
+        "drivetrain": "Shimano Tourney 7-speed",
+        "motor": "48V 500W geared rear hub",
+        "battery": "48V 20Ah (removable)",
+        "range": "70–80 km",
+        "topSpeed": "25 km/h",
+        "frame": "Full aluminium alloy",
+        "weight": "TBD",
+        "brakes": "Hydraulic disc brakes",
+        "display": "KT-LCD4",
+        "chargeTime": "7 h",
+        "carton": "167×27×80.5 cm"
+      },
+      "moq": "Contact us",
+      "certs": "SGS-tested components"
+    },
+    {
+      "slug": "beluga",
+      "name": "BELUGA",
+      "alt": "BELUGA All-Terrain Fat Tyre E-Bike",
+      "cat": "All-Terrain",
+      "img": "beluga.jpg",
+      "tagline": "20\"×4.25\" fat tyres, Shimano 7-speed, 32 km/h top speed.",
+      "specs": {
+        "wheel": "20\"×4.25\"",
+        "drivetrain": "Shimano 7-speed",
+        "motor": "48V 500W rear hub",
+        "battery": "48V 10.5Ah",
+        "range": "50–64 km",
+        "topSpeed": "32 km/h",
+        "frame": "Full aluminium alloy",
+        "weight": "29 kg (sample)",
+        "brakes": "Mechanical disc brakes",
+        "display": "LCD",
+        "chargeTime": "5.5 h",
+        "carton": "TBD"
+      },
+      "moq": "Contact us",
+      "certs": "SGS-tested components"
+    }
+  ]
+};
