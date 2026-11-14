@@ -216,6 +216,18 @@
         return;
       }
 
+      // stamp the landing page + attribution before collecting values
+      var pu = form.querySelector('input[name="page_url"]');
+      if (pu && !pu.value) pu.value = window.location.href;
+      var psEl = form.querySelector('input[name="page_source"]');
+      if (psEl && !psEl.value) {
+        try {
+          var stored = sessionStorage.getItem('morite_source');
+          if (stored) psEl.value = stored;
+          else psEl.value = new URLSearchParams(window.location.search).get('page_source') || 'direct';
+        } catch (e) { psEl.value = 'direct'; }
+      }
+
       var d = {};
       Array.prototype.forEach.call(form.elements, function (el) {
         if (el.name && el.type !== 'submit') d[el.name] = el.value.trim();
@@ -293,6 +305,63 @@
     }
   }
 
+
+  /* ---------- page_source attribution ----------
+     Every internal CTA gets ?page_source=<page>--<section>|<cta> so that
+     GA4 / CRM can tell which block on which page produced the click.
+     Idempotent: re-running never double-appends. */
+  function sectionLabel(el) {
+    var node = el;
+    while (node && node !== document.body) {
+      if (node.id) return node.id;
+      var cls = node.className;
+      if (typeof cls === 'string' && cls) {
+        var first = cls.split(/\s+/)[0];
+        if (first) return first;
+      }
+      node = node.parentNode;
+    }
+    return 'page';
+  }
+  function ctaLabel(el) {
+    var t = (el.textContent || '').replace(/\s+/g, ' ').trim().toLowerCase();
+    if (!t) return 'cta';
+    return t.slice(0, 40).replace(/[^a-z0-9]+/g, '_').replace(/^_+|_+$/g, '') || 'cta';
+  }
+  function pageKey() {
+    var p = window.location.pathname;
+    if (/\/products\//.test(p)) return 'product';
+    if (/\/legal\//.test(p)) return 'legal';
+    return 'home';
+  }
+  function initAttribution() {
+    if (!window.history || !window.history.replaceState) return;
+    var links = document.querySelectorAll('a[href]');
+    var pk = pageKey();
+    Array.prototype.forEach.call(links, function (a, i) {
+      var raw = a.getAttribute('href');
+      if (!raw) return;
+      if (/^(#|mailto:|tel:|javascript:|https?:\/\/)/i.test(raw)) return;
+      if (a.hasAttribute('data-no-source')) return;
+      if (raw.indexOf('page_source=') !== -1) return;
+      var tag = pk + '--' + sectionLabel(a) + '|' + ctaLabel(a);
+      var hash = '';
+      var hi = raw.indexOf('#');
+      if (hi !== -1) { hash = raw.slice(hi); raw = raw.slice(0, hi); }
+      var q = raw.indexOf('?') === -1 ? '?' : '&';
+      a.setAttribute('href', raw + q + 'page_source=' + encodeURI(tag) + hash);
+    });
+    // record arrival source for the current visit (read by the inquiry form)
+    try {
+      var ps = new URLSearchParams(window.location.search).get('page_source');
+      if (ps) {
+        sessionStorage.setItem('morite_source', ps);
+        var ref = document.querySelector('input[name="page_source"]');
+        if (ref) ref.value = ps;
+      }
+    } catch (e) {}
+  }
+
   /* ---------- icon placeholders ---------- */
   function paintIcons() {
     // data-icon: empty elements get an icon. Elements with text keep it and prepend the icon.
@@ -315,6 +384,7 @@
     paintIcons();
     initReveal();
     initForm();
+    initAttribution();
   }
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', boot);
