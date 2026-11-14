@@ -376,6 +376,58 @@
     });
   }
 
+  /* ---------- analytics -------------------------------------------------
+     Paste the GA4 Measurement ID below (looks like G-XXXXXXXXXX).
+     While it is empty nothing is loaded, so the site stays cookie-free and
+     no third-party request is made. Search Console verifies the same way.
+     ------------------------------------------------------------------- */
+  var GA4_ID = '';
+
+  /* ---------- GA4 loader ----------
+     Loads gtag.js only after the page is idle so it never blocks rendering,
+     and only on real visits (skipped for headless/prefetch).
+     ----------------------------------------------------------------- */
+  function isRealVisit() {
+    if (navigator.webdriver) return false;
+    if (/HeadlessChrome/i.test(navigator.userAgent)) return false;
+    var c = navigator.connection;
+    if (c && c.saveData) return false;
+    return true;
+  }
+  function track(name, params) {
+    if (typeof window.gtag !== 'function') return;
+    window.gtag('event', name, params || {});
+  }
+  function initAnalytics() {
+    if (!GA4_ID || GA4_ID.indexOf('G-') !== 0) return;
+    if (!isRealVisit()) return;
+    if (window.__MORITE_NO_GA) return;
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = window.gtag || function () {
+      window.dataLayer.push(arguments);
+    };
+    window.gtag('js', new Date());
+    window.gtag('config', GA4_ID, { anonymize_ip: true });
+    var s = document.createElement('script');
+    s.async = true;
+    s.src = 'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(GA4_ID);
+    s.onload = function () { initGaEvents(); };
+    document.head.appendChild(s);
+  }
+  function initGaEvents() {
+    // outbound + contact intent
+    document.addEventListener('click', function (e) {
+      var a = e.target && e.target.closest ? e.target.closest('a') : null;
+      if (!a) return;
+      var href = a.getAttribute('href') || '';
+      if (/^(mailto:|tel:)/i.test(href)) {
+        track('contact_click', { method: href.indexOf('mailto:') === 0 ? 'email' : 'phone' });
+      } else if (/^https?:\/\//i.test(href) && a.hostname !== window.location.hostname) {
+        track('outbound_click', { link_domain: a.hostname, link_url: href });
+      }
+    }, true);
+  }
+
   /* ---------- boot ---------- */
   function boot() {
     buildHeader();
@@ -385,6 +437,7 @@
     initReveal();
     initForm();
     initAttribution();
+    initAnalytics();
   }
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', boot);
