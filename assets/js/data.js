@@ -1,7 +1,7 @@
 /* Morite product data — source: QUALIBIKE product catalogue (26 pages) */
 window.MORITE = {
   "brand": "Morite",
-  "legalName": "Changzhou Bovo Intelligent Technology Co., Ltd.",
+  "legalName": "Changzhou Morite Intelligent Technology Co., Ltd.",
   "domain": "morite-power.com",
   "contact": {
     "phone": "+86 137 7521 3851",

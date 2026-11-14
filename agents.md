@@ -5,7 +5,7 @@
 ## Who we are
 
 - Brand: Morite
-- Legal entity: Changzhou Bovo Intelligent Technology Co., Ltd.
+- Legal entity: Changzhou Morite Intelligent Technology Co., Ltd.
 - What we do: OEM / ODM manufacturing of electric bicycles for distributors, private-label brands and fleet buyers.
 - Factory location: Changzhou, Jiangsu, China
 - Founded: 2017
