@@ -7,7 +7,11 @@
   'use strict';
 
   var D = window.MORITE || { brand: 'Morite', legalName: '', products: [] };
-  var CONTACT_EMAIL = 'Louis@qualisports.com';
+  var CONTACT_EMAIL = 'xufenglouis@163.com';
+  /* Formspree endpoint. Replace YOUR_FORM_ID with the id from formspree.io.
+     While the placeholder is present the form falls back to mailto so no lead is lost. */
+  var FORM_ENDPOINT = 'https://formspree.io/f/mljbgelk';
+  var FORM_READY = FORM_ENDPOINT.indexOf('YOUR_FORM_ID') === -1;
   var PHONE = '+86 137 7521 3851';
 
   /* ---------- inline icon helper ---------- */
@@ -212,11 +216,56 @@
         return;
       }
 
-      // No backend yet: hand off to mailto so no inquiry is lost.
       var d = {};
       Array.prototype.forEach.call(form.elements, function (el) {
-        if (el.name && el.type !== 'submit') d[el.name] = el.value;
+        if (el.name && el.type !== 'submit') d[el.name] = el.value.trim();
       });
+
+      if (!FORM_READY) {
+        mailtoFallback(d, 'Opening your email client to send this request.');
+        return;
+      }
+
+      var btn = form.querySelector('button[type="submit"]');
+      if (btn && btn.disabled) return;
+      var label = btn ? btn.textContent : '';
+      if (btn) { btn.disabled = true; btn.textContent = 'Sending...'; }
+      show('', '');
+
+      var payload = {
+        name: d.name,
+        company: d.company,
+        email: d.email,
+        country: d.country,
+        product: d.product || '(not specified)',
+        quantity: d.quantity || '(not specified)',
+        message: d.message || '(none)',
+        _subject: 'Quote request - ' + d.company + ' (' + d.country + ')',
+        page: window.location.href
+      };
+
+      fetch(FORM_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(payload)
+      }).then(function (res) {
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+        return res.json().catch(function () { return {}; });
+      }).then(function () {
+        form.reset();
+        show('ok', 'Thank you - your enquiry has been received. We reply to qualified enquiries within one business day.');
+        if (btn) { btn.disabled = false; btn.textContent = 'Sent'; }
+        // analytics hook
+        if (window.gtag) window.gtag('event', 'generate_lead', { form: 'inquiry' });
+        if (window.dataLayer) window.dataLayer.push({ event: 'inquiry_submitted' });
+        setTimeout(function () { if (btn) btn.textContent = label; }, 4000);
+      }).catch(function () {
+        if (btn) { btn.disabled = false; btn.textContent = label; }
+        mailtoFallback(d, 'Our form could not send automatically.');
+      });
+    });
+
+    function mailtoFallback(d, prefix) {
       var body = [
         'Inquiry from website form',
         '--------------------------------',
@@ -227,15 +276,15 @@
         'Product: ' + (d.product || ''),
         'Quantity: ' + (d.quantity || ''),
         'Message: ' + (d.message || '')
-      ].join('\n');
+      ].join(String.fromCharCode(10));
 
       var href = 'mailto:' + CONTACT_EMAIL +
-        '?subject=' + encodeURIComponent('Quote request — ' + d.company + ' (' + d.country + ')') +
+        '?subject=' + encodeURIComponent('Quote request - ' + d.company + ' (' + d.country + ')') +
         '&body=' + encodeURIComponent(body);
 
-      show('ok', 'Opening your email client to send this request. If nothing happens, email us directly at ' + CONTACT_EMAIL);
+      show('ok', prefix + ' Please send it by email - or write to ' + CONTACT_EMAIL + ' directly.');
       window.location.href = href;
-    });
+    }
 
     function show(kind, msg) {
       if (!status) return;

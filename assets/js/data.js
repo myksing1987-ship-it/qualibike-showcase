@@ -5,7 +5,7 @@ window.MORITE = {
   "domain": "morite-power.com",
   "contact": {
     "phone": "+86 137 7521 3851",
-    "email": "Louis@qualisports.com"
+    "email": "xufenglouis@163.com"
   },
   "products": [
     {
