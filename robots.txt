@@ -2,3 +2,6 @@ User-agent: *
 Allow: /
 
 Sitemap: https://morite-power.com/sitemap.xml
+
+# AI-readable summary of this site
+# llms.txt: https://morite-power.com/llms.txt

@@ -1,0 +1,28 @@
+# Morite
+
+> OEM / ODM electric bicycle manufacturer in Changzhou, China. Nine e-bike platforms for distributors, private-label brands and fleet buyers.
+
+## Products
+- [X-tron](https://morite-power.com/products/x-tron.html): Full aluminium city frame, 16" or 20" wheels, 48V 500W rear hub drive.
+- [Tycoon](https://morite-power.com/products/tycoon.html): 16"×4.0" fat tyres, hydraulic disc brakes, removable 48V battery.
+- [EQ MAG](https://morite-power.com/products/eq-mag.html): Samsung 20Ah or 10Ah pack, carbon steel frame, up to 60 km of range.
+- [Moped](https://morite-power.com/products/moped.html): 27 kg step-through commuter with 350W or 500W geared drive.
+- [Artax Li](https://morite-power.com/products/artax-li.html): Dual or single battery, Shimano 7-speed, Tektro hydraulic brakes.
+- [Gravel GX](https://morite-power.com/products/gravel-gx.html): 700C platform, 10-speed drivetrain, 19.6 kg complete bike.
+- [Supermini](https://morite-power.com/products/supermini.html): 18" city mini with 70–80 km range and 4-speed gearing.
+- [Electric Folding](https://morite-power.com/products/folding.html): 16" or 20" folding frame, Shimano 7-speed, 70–80 km range.
+- [BELUGA](https://morite-power.com/products/beluga.html): 20"×4.25" fat tyres, Shimano 7-speed, 32 km/h top speed.
+
+## Key pages
+- [Home](https://morite-power.com/): capabilities, process, enquiry form
+- [Products](https://morite-power.com/#products): all nine platforms
+- [Enquiry](https://morite-power.com/#inquiry): request a quotation
+- [Privacy](https://morite-power.com/legal/privacy.html), [Terms](https://morite-power.com/legal/terms.html)
+
+## Contact
+- Email: xufenglouis@163.com
+- Phone / WhatsApp: +86 137 7521 3851
+- No public price list. Pricing is quoted per enquiry.
+
+## Full brief for AI agents
+See [agents.md](https://morite-power.com/agents.md) for the complete description of our capabilities, customisation options and citation rules.
